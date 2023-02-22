@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Intro, crypto">
+    <meta name="keywords" content="Intro, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -244,8 +244,8 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            <a href="https://blog.csdn.net/villons?type=blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>archaeology
             </a>
         </li>
         
@@ -301,8 +301,8 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
+<a href="https://blog.csdn.net/villons?type=blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="archaeology" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
@@ -445,10 +445,23 @@
                                 <span class="chip bg-color">install</span>
                             </a>
                         
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/hexo/" class="post-category">
+                                hexo
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -464,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-21
+                    2023-02-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.7k
                 </div>
                 
 
@@ -523,33 +536,48 @@ categories:
 <p>以上直接抄了教程，其中分类和标签的区别是分类有顺序性，也就是说不能改变分类categories的顺序，但是标签tags的顺序无所谓。但是以上两个都不适用于分页。</p>
 <h3 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h3><p>默认布局分为post、page、draft。</p>
 <h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><p>当你每一次使用代码</p>
-<pre><code>hexo new XXX
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>它其实默认使用的是post这个布局，也就是在source文件夹下的_post里面。</p>
 <p>Hexo有三种默认布局：post、page和draft，它们分别对应不同的路径，而您自定义的其他布局和post相同，都将储存到source&#x2F;_posts文件夹。</p>
 <p>而new这个命令其实是：</p>
-<pre><code>hexo new [layout] &lt;title&gt;1
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>只不过这个layout默认是post罢了。</p>
 <h4 id="page"><a href="#page" class="headerlink" title="page"></a>page</h4><p>如果你想另起一页，那么可以使用</p>
-<pre><code>hexo new page newpage
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>系统会自动给你在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，这样你访问的newpage对应的链接就是<a target="_blank" rel="noopener" href="http://xxx.xxx/newpage">http://xxx.xxx/newpage</a></p>
 <h4 id="draft"><a href="#draft" class="headerlink" title="draft"></a>draft</h4><p>draft是草稿的意思，也就是你如果想写文章，又不希望被看到，那么可以</p>
-<pre><code>hexo new draft newdraft
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>这样会在source&#x2F;_draft中新建一个newdraft.md文件，如果你的草稿文件写的过程中，想要预览一下，那么可以使用</p>
-<pre><code>hexo server --draft
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token parameter variable">--draft</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>在本地端口中开启服务预览。</p>
 <p>如果你的草稿文件写完了，想要发表到post中，</p>
-<pre><code>hexo publish draft newdraft
-</code></pre>
-<p>就会自动把newdraft.md发送到post中。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>搭建网站的教程和以上的所有技术向的部分均来自CSDN：<a target="_blank" rel="noopener" href="https://gaoziman.blog.csdn.net/article/details/124652412">Hexo+Github博客搭建教程</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>就会自动把 newdraft.md 发送到post中。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>搭建网站的教程和以上的所有技术向的部分均来自CSDN：《<a target="_blank" rel="noopener" href="https://gaoziman.blog.csdn.net/article/details/124652412">Hexo+Github博客搭建教程</a>》</p>
 <p>补充：虽然这篇教程提供了Windows和Linux两种操作系统的教程，但是我个人本来是想搭建Linux的，可惜这篇教程似乎主要在介绍Windows的部署方法，反正在Linux部署的过程中我被不知名的错误卡住了，但是我在Windows的搭建过程中几乎没有遇到阻碍，所以如果有人希望搭建在Linux平台的话我只能说无能为力，可能需要搜索更多的教程。</p>
-<p>补充2：在搭建的过程中我几乎将设置全部做完了才开始试运行，结果发现出来的界面是全空白，让我一度以为一天的时间白干了（因为我用了很多的时间去斟酌原来者的东西应当拿什么东西代替）后来我发现新主题的包的文件夹名字多了一个-master，所以主题没能导入，删去就能有结果，属于是虚惊一场了。</p>
-<p>另外我的wp是在typora写的。曾经看别人用过vscode来写，但是在学习中（vscode的操作似乎更加依赖符号语言，但是我还记不住）typora目前有个问题我觉得一直存在，就是虽然它能够用很多的快捷键来完成对类似公式块和别的东西的编辑，但是在typora上渲染成功的一些输入方式在网页上可能就会出现问题，甚至出现说我的wp少了一部分但是我可能注意不到的情况。</p>
+<p>补充2：在更换主题的过程中我几乎将设置全部做完了才开始试运行，结果发现出来的界面是全空白，让我一度以为一天的时间白干了（因为我用了很多的时间去斟酌原来者的东西应当拿什么东西代替）后来发现推荐主题文件夹名字多了一个‘-master’，所以主题没能导入，删去即可，属于是虚惊一场了。</p>
+<p>另外我的wp是在typora写的。曾经看别人用过vscode来写，但是在学习中（vscode的操作似乎更加依赖符号语言，但是我还不熟练）typora目前有个问题我觉得一直存在，就是虽然它能够用很多的快捷键来完成对类似公式块和别的东西的编辑，但是在typora上渲染成功的一些输入方式在网页上可能就会出现问题，甚至出现我的wp少了一部分但是我注意不到的情况。</p>
+<p>补充3：我不太满意这个theme的副标题只有两条，因此决定去改源代码，vscode的在文件夹中查找非常好用，我通过锁定sub2变量出现找到了原函数，添加了sub3和sub:，于是副标题又多了两条。虽然我连这个theme的语言都不知道，但是写代码的人还是很有条理的。</p>
+<p>补充4： 事实上在我看来可能是因为theme在不断更新的原因，在blog后半篇对主题的优化似乎已经失去了时效性，有一些已经在theme的说明中有了，剩下的似乎也不能成功，其中就包括我心心念念的磁贴，我甚至专门问了所有者能不能用别人的图做自己磁贴的表情包，但是没想到在自己的本地配置怎么都 过不去。或许Java、编译、前端什么的哪一个精通了都能快速解决这些问题，但我就一臭学数学的，我无能为力。</p>
+<h3 id="about"><a href="#about" class="headerlink" title="about"></a>about</h3><p>下面这段本来是写在about.md的，但是发现在网页上似乎并不显示，于是放在了这里：</p>
+<blockquote>
+<p>我也不知道这段文字会出现在网页的哪个地方，也不知道该说什么。我想每一个第一次搭建个人blog的人都曾经想过在小小的电脑里面开辟属于自己的完美世界，就目前而言我还算顺利，希望这个blog能越来越完善。</p>
+<p>在这个blog站中，我主要会记录几类内容：</p>
+<ol>
+<li>最主要的肯定是密码学，这是我目前想要搭建博客的“缘起”了。</li>
+<li>其次可能会讲讲re的学习经历（但还没学），更主要的可能是记录一些不太常用但是好用的软件的使用方法。</li>
+<li>最后可能会讲一些数学相关，毕竟我的专业是数学，在平时做题或者备考的过程中如果来了兴致可能会有。</li>
+<li>剩下的可能会是一些杂谈，或者是在<del>垃圾堆里面刨食</del>在网上找资料时的一些心得。</li>
+<li>在此时此刻我不认为自己应当在这个平台上分享关于个人的信息，不知道以后会不会。</li>
+</ol>
+</blockquote>
+<p>搭建的事情可能到此结束了吧，其实折腾了一天也慢慢失去热情了。我只能说热情已经过去，留下的这些文档勉强算是我的收获，无所谓得失。</p>
 
                 
             </div>
@@ -566,7 +594,7 @@ categories:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer"></a>
+                    <a href="/about" rel="external nofollow noreferrer">Vil10n</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -589,7 +617,7 @@ categories:
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank"></a>
+                    <a href="/about" target="_blank">Vil10n</a>
                     !
                 </span>
             </div>
@@ -616,6 +644,10 @@ categories:
                             
                                 <a href="/tags/install/">
                                     <span class="chip bg-color">install</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -811,7 +843,11 @@ categories:
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
                             
                             
                         </span>
@@ -823,6 +859,10 @@ categories:
                     
                     <a href="/tags/install/">
                         <span class="chip bg-color">install</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -858,7 +898,7 @@ categories:
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            
+                            Vil10n
                             
                         </span>
                     </div>
@@ -901,7 +941,7 @@ categories:
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '来源: Vil10n<br />'
-            + '文章作者: <br />'
+            + '文章作者: Vil10n<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 
@@ -1039,13 +1079,13 @@ categories:
                 <span id="year">2023</span>
             
             <span id="year">2023</span>
-            <a href="/about" target="_blank"></a>
+            <a href="/about" target="_blank">Vil10n</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.1k</span>&nbsp;字
+                class="white-color">1.8k</span>&nbsp;字
             
             
             
@@ -1285,6 +1325,7 @@ $(function () {
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicksocialvalue.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
