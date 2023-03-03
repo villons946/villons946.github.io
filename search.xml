@@ -4,25 +4,206 @@
   
     
     <entry>
-      <title>Intro</title>
-      <link href="/2023/02/21/intro/"/>
-      <url>/2023/02/21/intro/</url>
+      <title>markdown个人手册</title>
+      <link href="/2023/02/24/markdown-ge-ren-shou-ce/"/>
+      <url>/2023/02/24/markdown-ge-ren-shou-ce/</url>
       
-        <content type="html"><![CDATA[<p>This is my first personal blog ! I have expected it for such a long time . There will be two parts on the blog . One is some operations for using Hexo and Git so that I needn’t search it from others’ blog every time . The other part is my introduction.、</p><p>[TOC]</p><h2 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h2><h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>在博客文件夹中右键打开Git Bash Here 进入类似cmd的命令行。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean：清除我之前生成的东西hexo g：hexo generate生成静态文章hexo s：浏览本地效果hexo d：hexo deploy部署文章hexo new post <span class="token string">"我的第一篇博客"</span>：新建一篇文章<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="front-matter"><a href="#front-matter" class="headerlink" title="front-matter"></a>front-matter</h3><pre class="line-numbers language-markdo" data-language="markdo"><code class="language-markdo">---title: Hexo+Github博客搭建记录date: 2022-05-08 15:15:44author: 爱笑的Gaoimg: &#x2F;medias&#x2F;banner&#x2F;7.jpgcoverImg: &#x2F;medias&#x2F;banner&#x2F;7.jpgtop: truecover: truetoc: truepassword: 5f15b28ffe43f8be4f239bdd9b69af9d80dbafcb20a5f0df5d1677a120ae9110mathjax: truesummary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要tags:- Hexo- Github- 博客categories:- 软件安装与配置---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>以上直接抄了教程，其中分类和标签的区别是分类有顺序性，也就是说不能改变分类categories的顺序，但是标签tags的顺序无所谓。但是以上两个都不适用于分页。</p><h3 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h3><p>默认布局分为post、page、draft。</p><h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><p>当你每一次使用代码</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>它其实默认使用的是post这个布局，也就是在source文件夹下的_post里面。</p><p>Hexo有三种默认布局：post、page和draft，它们分别对应不同的路径，而您自定义的其他布局和post相同，都将储存到source&#x2F;_posts文件夹。</p><p>而new这个命令其实是：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>只不过这个layout默认是post罢了。</p><h4 id="page"><a href="#page" class="headerlink" title="page"></a>page</h4><p>如果你想另起一页，那么可以使用</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>系统会自动给你在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，这样你访问的newpage对应的链接就是<a href="http://xxx.xxx/newpage">http://xxx.xxx/newpage</a></p><h4 id="draft"><a href="#draft" class="headerlink" title="draft"></a>draft</h4><p>draft是草稿的意思，也就是你如果想写文章，又不希望被看到，那么可以</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这样会在source&#x2F;_draft中新建一个newdraft.md文件，如果你的草稿文件写的过程中，想要预览一下，那么可以使用</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token parameter variable">--draft</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在本地端口中开启服务预览。</p><p>如果你的草稿文件写完了，想要发表到post中，</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>就会自动把 newdraft.md 发送到post中。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>搭建网站的教程和以上的所有技术向的部分均来自CSDN：《<a href="https://gaoziman.blog.csdn.net/article/details/124652412">Hexo+Github博客搭建教程</a>》</p><p>补充：虽然这篇教程提供了Windows和Linux两种操作系统的教程，但是我个人本来是想搭建Linux的，可惜这篇教程似乎主要在介绍Windows的部署方法，反正在Linux部署的过程中我被不知名的错误卡住了，但是我在Windows的搭建过程中几乎没有遇到阻碍，所以如果有人希望搭建在Linux平台的话我只能说无能为力，可能需要搜索更多的教程。</p><p>补充2：在更换主题的过程中我几乎将设置全部做完了才开始试运行，结果发现出来的界面是全空白，让我一度以为一天的时间白干了（因为我用了很多的时间去斟酌原来者的东西应当拿什么东西代替）后来发现推荐主题文件夹名字多了一个‘-master’，所以主题没能导入，删去即可，属于是虚惊一场了。</p><p>另外我的wp是在typora写的。曾经看别人用过vscode来写，但是在学习中（vscode的操作似乎更加依赖符号语言，但是我还不熟练）typora目前有个问题我觉得一直存在，就是虽然它能够用很多的快捷键来完成对类似公式块和别的东西的编辑，但是在typora上渲染成功的一些输入方式在网页上可能就会出现问题，甚至出现我的wp少了一部分但是我注意不到的情况。</p><p>补充3：我不太满意这个theme的副标题只有两条，因此决定去改源代码，vscode的在文件夹中查找非常好用，我通过锁定sub2变量出现找到了原函数，添加了sub3和sub:，于是副标题又多了两条。虽然我连这个theme的语言都不知道，但是写代码的人还是很有条理的。</p><p>补充4： 事实上在我看来可能是因为theme在不断更新的原因，在blog后半篇对主题的优化似乎已经失去了时效性，有一些已经在theme的说明中有了，剩下的似乎也不能成功，其中就包括我心心念念的磁贴，我甚至专门问了所有者能不能用别人的图做自己磁贴的表情包，但是没想到在自己的本地配置怎么都 过不去。或许Java、编译、前端什么的哪一个精通了都能快速解决这些问题，但我就一臭学数学的，我无能为力。</p><h3 id="about"><a href="#about" class="headerlink" title="about"></a>about</h3><p>下面这段本来是写在about.md的，但是发现在网页上似乎并不显示，于是放在了这里：</p><blockquote><p>我也不知道这段文字会出现在网页的哪个地方，也不知道该说什么。我想每一个第一次搭建个人blog的人都曾经想过在小小的电脑里面开辟属于自己的完美世界，就目前而言我还算顺利，希望这个blog能越来越完善。</p><p>在这个blog站中，我主要会记录几类内容：</p><ol><li>最主要的肯定是密码学，这是我目前想要搭建博客的“缘起”了。</li><li>其次可能会讲讲re的学习经历（但还没学），更主要的可能是记录一些不太常用但是好用的软件的使用方法。</li><li>最后可能会讲一些数学相关，毕竟我的专业是数学，在平时做题或者备考的过程中如果来了兴致可能会有。</li><li>剩下的可能会是一些杂谈，或者是在<del>垃圾堆里面刨食</del>在网上找资料时的一些心得。</li><li>在此时此刻我不认为自己应当在这个平台上分享关于个人的信息，不知道以后会不会。</li></ol></blockquote><p>搭建的事情可能到此结束了吧，其实折腾了一天也慢慢失去热情了。我只能说热情已经过去，留下的这些文档勉强算是我的收获，无所谓得失。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="零碎记录"><a href="#零碎记录" class="headerlink" title="零碎记录"></a>零碎记录</h1><p>如果想要在vscode中编辑markdown文档主要是在后期修改整合文件的时候，从无到有还是typora比较香吧。所以下面记录的用法应该会分为vscode场景和typora场景。两者还是有比较大的不同的。毕竟markdown的初衷是双手不离开键盘完成沉浸式的创作，我希望能通过这些不算难记的快捷键来尽可能实现这一点。</p><h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><h3 id="即时渲染"><a href="#即时渲染" class="headerlink" title="即时渲染"></a>即时渲染</h3><p>如果要在vscode中即时渲染，可以先Ctrl+k，松开之后按v。</p><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><blockquote><p>#在行首可以让这行变成标题，1~6个#可以分别表示一级到六级越来越小的6个标题。</p></blockquote><p>但是#如果不在行首则正常显示，而且#结束之后应当加上一个空格。</p><p>还有一种方法是</p><blockquote><p>一级标题&#x3D;&#x3D;&#x3D;</p><p>二级标题—</p></blockquote><p>但是必须在行首</p><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>连续使用三个*或者-作为单独一行，但是为避免和标题的第二种表示方式混淆，可以在—的中间或者前面加上空格。</p><h3 id="斜体和粗体"><a href="#斜体和粗体" class="headerlink" title="斜体和粗体"></a>斜体和粗体</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token content">斜体</span><span class="token punctuation">*</span></span><span class="token bold"><span class="token punctuation">**</span><span class="token content">粗体</span><span class="token punctuation">**</span></span><span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">又斜又粗</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token strike"><span class="token punctuation">~~</span><span class="token content">被删除线划掉</span><span class="token punctuation">~~</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这个符号在键盘左上角，shift＋·可食用</p><h3 id="超链接和图片"><a href="#超链接和图片" class="headerlink" title="超链接和图片"></a>超链接和图片</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">显示在上面的名字</span>](<span class="token url">对应的链接地址</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">显示在上面的名字</span>][<span class="token variable">1</span>]</span><span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> 链接地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>如果是图片：</p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">图片名</span>](<span class="token url">链接地址</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>图片只比超链接多一个！</p><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表：使用+-*加上空格，可以嵌套</p><p>有序列表就序号加.（英文句号）加上空格</p><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>把&gt;放在行首就会变成引用。</p><p><img src="https://img-blog.csdn.net/20180617105056177?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FmZWlfXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="看看别人"></p><h3 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h3><p>其实上面已经用过很多次了，即使用 &#96; 表示，例如</p><p>扩展：很多字符是需要转义，使用反斜杠 \ 进行转义</p><h2 id="typora"><a href="#typora" class="headerlink" title="typora"></a>typora</h2><p>首先如果按照vscode的方式输入肯定是没问题的，但是typora还有很多方便的快捷键，如果你已经习惯了vscode的输入方式可能你不会觉得它们好用，但是如果你和我一样啥都不会并且接触到了typora，我想它不会让你失望。</p><p>你可以自行观察上面的导航栏，我的列出所有快捷键都是从上面导航栏的标记里面找到的。</p><h3 id="标题-1"><a href="#标题-1" class="headerlink" title="标题"></a>标题</h3><p>如果我们要表示标题，只需要使得光标在这一行，并且按住Ctrl+数字[1,6]，可以将这一行设置为各级标题。</p><h3 id="分割线-1"><a href="#分割线-1" class="headerlink" title="分割线"></a>分割线</h3><p>这个似乎没有专门的快捷键，在段落栏的下方有水平分割线，当然vscode中的三个—单独一行就能非常方便的作出水平分割线。</p><h3 id="斜体和粗体下划线删除线"><a href="#斜体和粗体下划线删除线" class="headerlink" title="斜体和粗体下划线删除线"></a>斜体和粗体下划线删除线</h3><p>都可以选定，右键菜单里面有，但是在我看来还不如打星号什么的。</p><h3 id="超链接和图片-1"><a href="#超链接和图片-1" class="headerlink" title="超链接和图片"></a>超链接和图片</h3><p>超链接直接复制链接地址然后选中超链接想显示的文字，然后Ctrl+k</p><p>图片我觉得直接拖拽进来就好了，vscode应该也可以。</p><h3 id="列表-1"><a href="#列表-1" class="headerlink" title="列表"></a>列表</h3><p>没有更好的替代方式</p><h3 id="引用-1"><a href="#引用-1" class="headerlink" title="引用"></a>引用</h3><p>Ctrl+shift+Q</p><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>Ctrl+shift+K</p><p>但如果是行内的代码块就不知道了。按vscode的吧。</p><h3 id="公式块"><a href="#公式块" class="headerlink" title="公式块"></a>公式块</h3><p>Ctrl+shift+M</p><p>但是这个快捷键只能生成一个公式块的“块”，虽然说能进行一些简单公式的输入，但是关于符号还是非常的反人类。win+。可以打开编辑-表情与符号，可以找到数学符号，但是极度不好用，我宁可自己按照编程语言打上去让别人意会都懒得找这个符号。关于数学公式的正统输入我觉得可以单独写。</p><h2 id="公式输入"><a href="#公式输入" class="headerlink" title="公式输入"></a>公式输入</h2><p><a href="https://gemini-yang.blog.csdn.net/article/details/104878759">Markdown公式、符号总结</a></p><p>这坑太大了，填不动了……</p>]]></content>
       
       
       <categories>
           
-          <category> hexo </category>
+          <category> usage </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> install </tag>
+            <tag> markdown </tag>
             
-            <tag> web </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>itertools库函数</title>
+      <link href="/2023/02/24/itertools-ku-han-shu/"/>
+      <url>/2023/02/24/itertools-ku-han-shu/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/51003123">详解Python中的itertools模块</a></p><p><a href="https://www.cnblogs.com/ai594ai/p/15930579.html">itertools详解</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>链接引用</title>
+      <link href="/2023/02/24/lian-jie-fen-xiang/"/>
+      <url>/2023/02/24/lian-jie-fen-xiang/</url>
+      
+        <content type="html"><![CDATA[<h1 id="链接引用合集"><a href="#链接引用合集" class="headerlink" title="链接引用合集"></a>链接引用合集</h1><p>在我自己学习的时候总是能遇到很多前辈给我的各种各样的帮助，但是我本身并不是计算机专业出身，有很多规矩也不清不楚，只是带着爱好想从密码想庞大的计算机领域管中窥豹。就比如我常常在写blog的时候写完了准备引用的时候才发现自己参考的别人的blog链接忘记放了，历史记录又常常乱如垃圾场，最后干脆摆烂。事实上我看到了很多自己一次性没发吃透的blog，它们不应当被丢在历史记录的垃圾堆中被遗忘，更不应该在我需要的时候只能从搜索引擎中被找到。所以我将本站的引用链接直接全部放在这里，在这里也会的链接也可能会在哪一天被我吃透，成为我自己写的blog的一部分，我想在那个时候，我也会很开心，既写出了以前完全写不出的东西，也留下了前辈的印记。</p><p>记录在这里的链接没有品质或者难易度的先后，纯粹是我想起哪个就挂起哪个。</p><h2 id="笔记工具"><a href="#笔记工具" class="headerlink" title="笔记工具"></a>笔记工具</h2><p><a href="https://blog.csdn.net/afei__/article/details/80717153?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167720862616782429774329%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167720862616782429774329&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-80717153-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=markdowm&spm=1018.2226.3001.4187">Markdown语法</a></p><p><a href="https://gemini-yang.blog.csdn.net/article/details/104878759">Markdown公式、符号总结</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> note </category>
+          
+          <category> others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+            <tag> temp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python个人手册</title>
+      <link href="/2023/02/24/python-ge-ren-shou-ce/"/>
+      <url>/2023/02/24/python-ge-ren-shou-ce/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="python个人手册"><a href="#python个人手册" class="headerlink" title="python个人手册"></a>python个人手册</h1><h2 id="数据处理类"><a href="#数据处理类" class="headerlink" title="数据处理类"></a>数据处理类</h2><h3 id="byte编码"><a href="#byte编码" class="headerlink" title="byte编码"></a>byte编码</h3><p>decode：默认utf-8，将bytes直接转换成string</p><p>decode：同上，将string转换成bytes</p><p>所以，以上情况下只是简单的储存格式改变，但是如果用了别的编码格式就不一样了。</p><h3 id="int函数"><a href="#int函数" class="headerlink" title="int函数"></a>int函数</h3><p>本来有个int函数的，可以转换成十进制整型，可以加上一个表示原来是几进制的数字，当然没有也可以。</p><p>这个是另外一种，但也不需要引入库。</p><p>bytes是要转换的十六进制；</p><p>byteorder：选’big’和’little’，以上例为例，其中big代表正常顺序，即f1ff。little反之，代表反序fff1；</p><p>signed：选True、Flase表示是否要区分二进制的正负数含义。即是否要对原二进制数进行原码反码补码操作。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">s1 <span class="token operator">=</span> <span class="token string">b'\xf1\xff'</span>  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">.</span>from_bytes<span class="token punctuation">(</span>s1<span class="token punctuation">,</span> byteorder<span class="token operator">=</span><span class="token string">'big'</span><span class="token punctuation">,</span> signed<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">.</span>from_bytes<span class="token punctuation">(</span>s1<span class="token punctuation">,</span> byteorder<span class="token operator">=</span><span class="token string">'little'</span><span class="token punctuation">,</span> signed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#输出：</span><span class="token number">61951</span><span class="token operator">-</span><span class="token number">15</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="对齐函数"><a href="#对齐函数" class="headerlink" title="对齐函数"></a>对齐函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">str</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span>width<span class="token punctuation">,</span>fillchar<span class="token punctuation">)</span>s1 <span class="token operator">=</span> <span class="token string">b'asf'</span>  <span class="token keyword">print</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#.......asf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>ljust同理。</p><h3 id="索引函数"><a href="#索引函数" class="headerlink" title="索引函数"></a>索引函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>ind <span class="token operator">=</span> <span class="token number">2</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">.</span>index<span class="token punctuation">(</span>ind<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="set函数"><a href="#set函数" class="headerlink" title="set函数"></a>set函数</h3><p>创造set数据，是一个无序不重复集合，以花括号表示，可以进行差集交集并集的操作，增删集合内元素用add和remove等来操作。</p><h3 id="split函数"><a href="#split函数" class="headerlink" title="split函数"></a>split函数</h3><p>切割字符串形成数组，默认切割的是空格。</p><h3 id="join函数"><a href="#join函数" class="headerlink" title="join函数"></a>join函数</h3><p>将数组的内容相连。</p><h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><ul><li><h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4></li></ul><p>按位与运算，只有同为1的时候输出的结果才为1.</p><blockquote><p>1 &amp; 1 &#x3D; 1</p><p>1 &amp; 0 &#x3D; 0</p><p>0 &amp; 0 &#x3D; 0</p></blockquote><p>常用语if语句，由于if只要大于零就算true进入循环，因此可以设置特定的数据，达到判断输入的数字的二进制位数哪一位是1，只要有一位满足要求就通过。</p><p>eg: 如果是0x80则只有第8位有可能为真，即检查第8位是否为1，是则进入if语句</p><ul><li><h4 id=""><a href="#" class="headerlink" title="|"></a>|</h4></li></ul><p>按位或运算，只要两个数的相应位置有一个1就输出1</p><blockquote><p>1 | 1 &#x3D; 1</p><p>1 | 0 &#x3D; 1</p><p>0 | 0 &#x3D; 0</p></blockquote><ul><li><h4 id="-1"><a href="#-1" class="headerlink" title="^"></a>^</h4></li></ul><p>按位异或，对应数位不同则输出1，相同则输出0</p><blockquote><p>1 ^ 1 &#x3D; 0</p><p>1 ^ 0 &#x3D; 1</p><p>0 ^ 0 &#x3D; 0</p></blockquote><ul><li><h4 id="-2"><a href="#-2" class="headerlink" title="~"></a>~</h4></li></ul><p>求反运算，是单目运算符，字面意思。</p><h4 id="移位函数"><a href="#移位函数" class="headerlink" title="移位函数"></a>移位函数</h4><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token blockquote punctuation">>></span>是右移，相当于整除以2&lt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>是左移，相当于乘以2</span><span class="token punctuation">></span></span><span class="token blockquote punctuation">></span>=和&lt;&lt;=就是移位之后赋值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="库函数"><a href="#库函数" class="headerlink" title="库函数"></a>库函数</h3><h4 id="Crypto-Util-number"><a href="#Crypto-Util-number" class="headerlink" title="Crypto.Util.number"></a>Crypto.Util.number</h4><h5 id="bytes-to-long"><a href="#bytes-to-long" class="headerlink" title="bytes_to_long"></a>bytes_to_long</h5><p>转换成ASCII码，一个字符占据一个字节。</p><p>eg: b’abc’ &#x3D;&gt; 97 * 2^16 + 98 * 2^8 + 99 * 2^0 &#x3D; 63821</p><h4 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h4><h5 id="gcd-xi"><a href="#gcd-xi" class="headerlink" title="gcd( xi )"></a>gcd( xi )</h5><p>可以放很多int数下去，求公因式</p><h4 id="binascii"><a href="#binascii" class="headerlink" title="binascii"></a>binascii</h4><p>chr():把一个整形转换成ASCII码表中对应的单个字符<br>ord():把ASCII码表中的字符转换成对应的整形<br>hex():把十进制转换成16进制字符<br>oct():把十进制转换成八进制字符<br>bin():把十进制整形转换成二进制字符</p><p>还有别的感觉没啥用。</p><h4 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h4><p>感觉也是同上，其实这些库函数的名字都比较好识别，我自己基本上不会用到，但是有时候看别人的脚本可能还是现场查算了。</p><h2 id="自动化类"><a href="#自动化类" class="headerlink" title="自动化类"></a>自动化类</h2><h3 id="map-function-iterable"><a href="#map-function-iterable" class="headerlink" title="map(function, iterable)"></a>map(function, iterable)</h3><p>会返回一个迭代器，一般与list函数配合使用。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="reduce-function-iterable"><a href="#reduce-function-iterable" class="headerlink" title="reduce(function, iterable)"></a>reduce(function, iterable)</h3><p>是个python2的库函数，在python3被移到functools模块中，需要导入。</p><p>感觉和map差不多但是这个可以直接输出，比如配合add函数达到sum的效果×</p><h3 id="itertools库"><a href="#itertools库" class="headerlink" title="itertools库"></a>itertools库</h3><p>专门写一篇。</p><p>突然不想写了，世间事都那么无趣，总不是一句三分钟热度就有三分钟收获就可以自我安慰的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> usage </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>idaPro个人手册</title>
+      <link href="/2023/02/24/idapro-ge-ren-shou-ce/"/>
+      <url>/2023/02/24/idapro-ge-ren-shou-ce/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IDA-特训营"><a href="#IDA-特训营" class="headerlink" title="IDA_特训营"></a>IDA_特训营</h1><p>IDA 7.7</p><p>Python 环境 3.8.x</p><p>课程必备插件</p><p>LazyIDA: <a href="https://github.com/P4nda0s/LazyIDA">https://github.com/P4nda0s/LazyIDA</a></p><p>Keypatch: <a href="https://github.com/keystone-engine/keypatch">https://github.com/keystone-engine/keypatch</a> （pip install keystone-engine）</p><p>将插件的 xxx.py 放到 IDA 目录的 plugins 目录</p><p>系统中有多个 python，使用 IDA 目录中的 idapyswitch.exe 切换</p><h2 id="IDA-特训1"><a href="#IDA-特训1" class="headerlink" title="IDA_特训1"></a>IDA_特训1</h2><ul><li><h2 id="空格键切换文本-x2F-图形模式-在图形模式中Ctrl-鼠标滚轮缩放，方便观察控制流-在文本模式中可以看到指令地址、指令间的线性关系、机器码"><a href="#空格键切换文本-x2F-图形模式-在图形模式中Ctrl-鼠标滚轮缩放，方便观察控制流-在文本模式中可以看到指令地址、指令间的线性关系、机器码" class="headerlink" title="空格键切换文本&#x2F;图形模式- 在图形模式中Ctrl+鼠标滚轮缩放，方便观察控制流- 在文本模式中可以看到指令地址、指令间的线性关系、机器码"></a>空格键切换文本&#x2F;图形模式<br>- 在图形模式中Ctrl+鼠标滚轮缩放，方便观察控制流<br>- 在文本模式中可以看到指令地址、指令间的线性关系、机器码</h2></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ida </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>古典密码与编码</title>
+      <link href="/2023/02/24/gu-dian-mi-ma-yu-bian-ma/"/>
+      <url>/2023/02/24/gu-dian-mi-ma-yu-bian-ma/</url>
+      
+        <content type="html"><![CDATA[<p>在这里记录下我遇到的古典密码和各种现代编码。</p><h1 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h1><h1 id="现代编码"><a href="#现代编码" class="headerlink" title="现代编码"></a>现代编码</h1><p><a href="https://www.cmd5.com/">md5和sha系列</a></p><p><a href="http://www.factordb.com/index.php">大数分解</a></p><p><a href="https://quipqiup.com/">单表替换quipquip</a></p><p><a href="https://www.guballa.de/vigenere-solver">维吉尼亚密码</a></p><p><a href="https://www.qqxiuzi.cn/bianma/uuencode.php">Uuencode</a></p><p><a href="https://online-barcode-reader.inliteresearch.com/">扫码工具</a></p><h1 id="隐写术"><a href="#隐写术" class="headerlink" title="隐写术"></a>隐写术</h1><p><a href="https://www.mzy0.com/ctftools/zerowidth2/">零宽隐写</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> usage </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> crypto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pwntools个人手册</title>
+      <link href="/2023/02/24/pwntools-ge-ren-shou-ce/"/>
+      <url>/2023/02/24/pwntools-ge-ren-shou-ce/</url>
+      
+        <content type="html"><![CDATA[<h1 id="pwntools个人手册"><a href="#pwntools个人手册" class="headerlink" title="pwntools个人手册"></a>pwntools个人手册</h1><p>目前还啥都不会。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> usage </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> pwntools </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Intro</title>
+      <link href="/2023/02/21/intro/"/>
+      <url>/2023/02/21/intro/</url>
+      
+        <content type="html"><![CDATA[<p>This is my first personal blog ! I have expected it for such a long time . There will be two parts on the blog . One is some operations for using Hexo and Git so that I needn’t search it from others’ blog every time . The other part is my introduction.、</p><p>[TOC]</p><h2 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h2><h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>在博客文件夹中右键打开Git Bash Here 进入类似cmd的命令行。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean：清除我之前生成的东西hexo g：hexo generate生成静态文章hexo s：浏览本地效果hexo d：hexo deploy部署文章hexo new post <span class="token string">"我的第一篇博客"</span>：新建一篇文章<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="front-matter"><a href="#front-matter" class="headerlink" title="front-matter"></a>front-matter</h3><pre class="line-numbers language-markdo" data-language="markdo"><code class="language-markdo">---title: Hexo+Github博客搭建记录date: 2022-05-08 15:15:44author: 爱笑的Gaoimg: &#x2F;medias&#x2F;banner&#x2F;7.jpg   #文章特征图coverImg: &#x2F;medias&#x2F;banner&#x2F;7.jpg  #首页轮播时的图片，如果没有则放特征图top: true  #是否置顶cover: true  #是否加入首页轮播封面toc: true #一种检索功能？password: 5f15b28ffe43f8be4f239bdd9b69af9d80dbafcb20a5f0df5d1677a120ae9110mathjax: falsesummary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要tags:- Hexo- Github- 博客categories:- 软件安装与配置---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>以上直接抄了教程，其中分类和标签的区别是分类有顺序性，也就是说不能改变分类categories的顺序，但是标签tags的顺序无所谓。但是以上两个都不适用于分页。</p><h3 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h3><p>默认布局分为post、page、draft。</p><h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><p>当你每一次使用代码</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>它其实默认使用的是post这个布局，也就是在source文件夹下的_post里面。</p><p>Hexo有三种默认布局：post、page和draft，它们分别对应不同的路径，而您自定义的其他布局和post相同，都将储存到source&#x2F;_posts文件夹。</p><p>而new这个命令其实是：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>只不过这个layout默认是post罢了。</p><h4 id="page"><a href="#page" class="headerlink" title="page"></a>page</h4><p>如果你想另起一页，那么可以使用</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>系统会自动给你在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，这样你访问的newpage对应的链接就是<a href="http://xxx.xxx/newpage">http://xxx.xxx/newpage</a></p><h4 id="draft"><a href="#draft" class="headerlink" title="draft"></a>draft</h4><p>draft是草稿的意思，也就是你如果想写文章，又不希望被看到，那么可以</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这样会在source&#x2F;_draft中新建一个newdraft.md文件，如果你的草稿文件写的过程中，想要预览一下，那么可以使用</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token parameter variable">--draft</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在本地端口中开启服务预览。</p><p>如果你的草稿文件写完了，想要发表到post中，</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>就会自动把 newdraft.md 发送到post中。</p><h2 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h2><p>总是忘记，所以干脆在这里记下来。</p><pre class="line-numbers language-none"><code class="language-none">tags:- python- ida- install- hexo- linux- sagemathcategories:- usage or note- math or crypto or install or others<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>搭建网站的教程和以上的所有技术向的部分均来自CSDN：《<a href="https://gaoziman.blog.csdn.net/article/details/124652412">Hexo+Github博客搭建教程</a>》</p><p>补充：虽然这篇教程提供了Windows和Linux两种操作系统的教程，但是我个人本来是想搭建Linux的，可惜这篇教程似乎主要在介绍Windows的部署方法，反正在Linux部署的过程中我被不知名的错误卡住了，但是我在Windows的搭建过程中几乎没有遇到阻碍，所以如果有人希望搭建在Linux平台的话我只能说无能为力，可能需要搜索更多的教程。</p><p>补充2：在更换主题的过程中我几乎将设置全部做完了才开始试运行，结果发现出来的界面是全空白，让我一度以为一天的时间白干了（因为我用了很多的时间去斟酌原来者的东西应当拿什么东西代替）后来发现推荐主题文件夹名字多了一个‘-master’，所以主题没能导入，删去即可，属于是虚惊一场了。</p><p>另外我的wp是在typora写的。曾经看别人用过vscode来写，但是在学习中（vscode的操作似乎更加依赖符号语言，但是我还不熟练）typora目前有个问题我觉得一直存在，就是虽然它能够用很多的快捷键来完成对类似公式块和别的东西的编辑，但是在typora上渲染成功的一些输入方式在网页上可能就会出现问题，甚至出现我的wp少了一部分但是我注意不到的情况。</p><p>补充3：我不太满意这个theme的副标题只有两条，因此决定去改源代码，vscode的在文件夹中查找非常好用，我通过锁定sub2变量出现找到了原函数，添加了sub3和sub:，于是副标题又多了两条。虽然我连这个theme的语言都不知道，但是写代码的人还是很有条理的。</p><p>补充4： 事实上在我看来可能是因为theme在不断更新的原因，在blog后半篇对主题的优化似乎已经失去了时效性，有一些已经在theme的说明中有了，剩下的似乎也不能成功，其中就包括我心心念念的磁贴，我甚至专门问了所有者能不能用别人的图做自己磁贴的表情包，但是没想到在自己的本地配置怎么都 过不去。或许Java、编译、前端什么的哪一个精通了都能快速解决这些问题，但我就一臭学数学的，我无能为力。</p><h3 id="about"><a href="#about" class="headerlink" title="about"></a>about</h3><p>下面这段本来是写在about.md的，但是发现在网页上似乎并不显示，于是放在了这里：</p><blockquote><p>我也不知道这段文字会出现在网页的哪个地方，也不知道该说什么。我想每一个第一次搭建个人blog的人都曾经想过在小小的电脑里面开辟属于自己的完美世界，就目前而言我还算顺利，希望这个blog能越来越完善。</p><p>在这个blog站中，我主要会记录几类内容：</p><ol><li>最主要的肯定是密码学，这是我目前想要搭建博客的“缘起”了。</li><li>其次可能会讲讲re的学习经历（但还没学），更主要的可能是记录一些不太常用但是好用的软件的使用方法。</li><li>最后可能会讲一些数学相关，毕竟我的专业是数学，在平时做题或者备考的过程中如果来了兴致可能会有。</li><li>剩下的可能会是一些杂谈，或者是在<del>垃圾堆里面刨食</del>在网上找资料时的一些心得。</li><li>在此时此刻我不认为自己应当在这个平台上分享关于个人的信息，不知道以后会不会。</li></ol></blockquote><p>搭建的事情可能到此结束了吧，其实折腾了一天也慢慢失去热情了。我只能说热情已经过去，留下的这些文档勉强算是我的收获，无所谓得失。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> note </category>
+          
+          <category> install </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
             
         </tags>
       

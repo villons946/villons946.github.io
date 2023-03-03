@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, cryptography">
+    <meta name="keywords" content="markdown个人手册, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Vil10n</title>
+    <title>markdown个人手册 | Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">markdown个人手册</h1>
                 </div>
             </div>
         </div>
@@ -417,12 +417,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/markdown/">
+                                <span class="chip bg-color">markdown</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/usage/" class="post-category">
+                                usage
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -431,21 +444,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-21
+                    2023-02-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-21
+                    2023-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    967
                 </div>
                 
 
@@ -465,19 +478,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="零碎记录"><a href="#零碎记录" class="headerlink" title="零碎记录"></a>零碎记录</h1><p>如果想要在vscode中编辑markdown文档主要是在后期修改整合文件的时候，从无到有还是typora比较香吧。所以下面记录的用法应该会分为vscode场景和typora场景。两者还是有比较大的不同的。毕竟markdown的初衷是双手不离开键盘完成沉浸式的创作，我希望能通过这些不算难记的快捷键来尽可能实现这一点。</p>
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><h3 id="即时渲染"><a href="#即时渲染" class="headerlink" title="即时渲染"></a>即时渲染</h3><p>如果要在vscode中即时渲染，可以先Ctrl+k，松开之后按v。</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><blockquote>
+<p>#在行首可以让这行变成标题，1~6个#可以分别表示一级到六级越来越小的6个标题。</p>
+</blockquote>
+<p>但是#如果不在行首则正常显示，而且#结束之后应当加上一个空格。</p>
+<p>还有一种方法是</p>
+<blockquote>
+<p>一级标题&#x3D;&#x3D;&#x3D;</p>
+<p>二级标题—</p>
+</blockquote>
+<p>但是必须在行首</p>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>连续使用三个*或者-作为单独一行，但是为避免和标题的第二种表示方式混淆，可以在—的中间或者前面加上空格。</p>
+<h3 id="斜体和粗体"><a href="#斜体和粗体" class="headerlink" title="斜体和粗体"></a>斜体和粗体</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token content">斜体</span><span class="token punctuation">*</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">粗体</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">又斜又粗</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token strike"><span class="token punctuation">~~</span><span class="token content">被删除线划掉</span><span class="token punctuation">~~</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这个符号在键盘左上角，shift＋·可食用</p>
+<h3 id="超链接和图片"><a href="#超链接和图片" class="headerlink" title="超链接和图片"></a>超链接和图片</h3><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">显示在上面的名字</span>](<span class="token url">对应的链接地址</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">显示在上面的名字</span>][<span class="token variable">1</span>]</span>
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> 链接地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>如果是图片：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">图片名</span>](<span class="token url">链接地址</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>图片只比超链接多一个！</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表：使用+-*加上空格，可以嵌套</p>
+<p>有序列表就序号加.（英文句号）加上空格</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>把&gt;放在行首就会变成引用。</p>
+<p><img src="https://img-blog.csdn.net/20180617105056177?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FmZWlfXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="看看别人"></p>
+<h3 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h3><p>其实上面已经用过很多次了，即使用 &#96; 表示，例如</p>
+<p>扩展：很多字符是需要转义，使用反斜杠 \ 进行转义</p>
+<h2 id="typora"><a href="#typora" class="headerlink" title="typora"></a>typora</h2><p>首先如果按照vscode的方式输入肯定是没问题的，但是typora还有很多方便的快捷键，如果你已经习惯了vscode的输入方式可能你不会觉得它们好用，但是如果你和我一样啥都不会并且接触到了typora，我想它不会让你失望。</p>
+<p>你可以自行观察上面的导航栏，我的列出所有快捷键都是从上面导航栏的标记里面找到的。</p>
+<h3 id="标题-1"><a href="#标题-1" class="headerlink" title="标题"></a>标题</h3><p>如果我们要表示标题，只需要使得光标在这一行，并且按住Ctrl+数字[1,6]，可以将这一行设置为各级标题。</p>
+<h3 id="分割线-1"><a href="#分割线-1" class="headerlink" title="分割线"></a>分割线</h3><p>这个似乎没有专门的快捷键，在段落栏的下方有水平分割线，当然vscode中的三个—单独一行就能非常方便的作出水平分割线。</p>
+<h3 id="斜体和粗体下划线删除线"><a href="#斜体和粗体下划线删除线" class="headerlink" title="斜体和粗体下划线删除线"></a>斜体和粗体下划线删除线</h3><p>都可以选定，右键菜单里面有，但是在我看来还不如打星号什么的。</p>
+<h3 id="超链接和图片-1"><a href="#超链接和图片-1" class="headerlink" title="超链接和图片"></a>超链接和图片</h3><p>超链接直接复制链接地址然后选中超链接想显示的文字，然后Ctrl+k</p>
+<p>图片我觉得直接拖拽进来就好了，vscode应该也可以。</p>
+<h3 id="列表-1"><a href="#列表-1" class="headerlink" title="列表"></a>列表</h3><p>没有更好的替代方式</p>
+<h3 id="引用-1"><a href="#引用-1" class="headerlink" title="引用"></a>引用</h3><p>Ctrl+shift+Q</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>Ctrl+shift+K</p>
+<p>但如果是行内的代码块就不知道了。按vscode的吧。</p>
+<h3 id="公式块"><a href="#公式块" class="headerlink" title="公式块"></a>公式块</h3><p>Ctrl+shift+M</p>
+<p>但是这个快捷键只能生成一个公式块的“块”，虽然说能进行一些简单公式的输入，但是关于符号还是非常的反人类。win+。可以打开编辑-表情与符号，可以找到数学符号，但是极度不好用，我宁可自己按照编程语言打上去让别人意会都懒得找这个符号。关于数学公式的正统输入我觉得可以单独写。</p>
+<h2 id="公式输入"><a href="#公式输入" class="headerlink" title="公式输入"></a>公式输入</h2><p><a target="_blank" rel="noopener" href="https://gemini-yang.blog.csdn.net/article/details/104878759">Markdown公式、符号总结</a></p>
+<p>这坑太大了，填不动了……</p>
 
                 
             </div>
@@ -494,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Vil10n</a>
+                    <a href="/about" rel="external nofollow noreferrer">v</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -504,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/21/hello-world/">https://villons946.github.io/2023/02/21/hello-world/</a>
+                    <a href="https://villons946.github.io/2023/02/24/markdown-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/markdown-ge-ren-shou-ce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -517,7 +567,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Vil10n</a>
+                    <a href="/about" target="_blank">v</a>
                     !
                 </span>
             </div>
@@ -541,7 +591,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/markdown/">
+                                    <span class="chip bg-color">markdown</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -709,50 +763,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/02/21/intro/">
+                <a href="/2023/02/24/markdown-ge-ren-shou-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Intro">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="markdown个人手册">
                         
-                        <span class="card-title">Intro</span>
+                        <span class="card-title">markdown个人手册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            记一点markdown使用笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/note/" class="post-category">
-                                    note
-                                </a>
-                            
-                            <a href="/categories/note/install/" class="post-category">
-                                    install
+                            <a href="/categories/usage/" class="post-category">
+                                    usage
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/markdown/">
+                        <span class="chip bg-color">markdown</span>
                     </a>
                     
                 </div>
@@ -763,37 +815,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/21/hello-world/">
+                <a href="/2023/02/24/itertools-ku-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="itertools库函数">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">itertools库函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            暂时还是啥都不会的阶段，先放两个别人的链接镇场子。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Vil10n
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

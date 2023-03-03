@@ -118,17 +118,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
@@ -215,17 +204,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -441,12 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/install/">
-                                <span class="chip bg-color">install</span>
-                            </a>
-                        
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
                             </a>
                         
                     </div>
@@ -457,8 +431,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/note/" class="post-category">
+                                note
+                            </a>
+                        
+                            <a href="/categories/note/install/" class="post-category">
+                                install
                             </a>
                         
                     </div>
@@ -477,14 +455,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-22
+                    2023-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
@@ -517,13 +495,13 @@ hexo new post <span class="token string">"我的第一篇博客"</span>：新建
 title: Hexo+Github博客搭建记录
 date: 2022-05-08 15:15:44
 author: 爱笑的Gao
-img: &#x2F;medias&#x2F;banner&#x2F;7.jpg
-coverImg: &#x2F;medias&#x2F;banner&#x2F;7.jpg
-top: true
-cover: true
-toc: true
+img: &#x2F;medias&#x2F;banner&#x2F;7.jpg   #文章特征图
+coverImg: &#x2F;medias&#x2F;banner&#x2F;7.jpg  #首页轮播时的图片，如果没有则放特征图
+top: true  #是否置顶
+cover: true  #是否加入首页轮播封面
+toc: true #一种检索功能？
 password: 5f15b28ffe43f8be4f239bdd9b69af9d80dbafcb20a5f0df5d1677a120ae9110
-mathjax: true
+mathjax: false
 summary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
 tags:
 - Hexo
@@ -559,6 +537,20 @@ categories:
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>就会自动把 newdraft.md 发送到post中。</p>
+<h2 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h2><p>总是忘记，所以干脆在这里记下来。</p>
+<pre class="line-numbers language-none"><code class="language-none">tags:
+- python
+- ida
+- install
+- hexo
+- linux
+- sagemath
+categories:
+- usage or note
+- math or crypto or install or others<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>搭建网站的教程和以上的所有技术向的部分均来自CSDN：《<a target="_blank" rel="noopener" href="https://gaoziman.blog.csdn.net/article/details/124652412">Hexo+Github博客搭建教程</a>》</p>
 <p>补充：虽然这篇教程提供了Windows和Linux两种操作系统的教程，但是我个人本来是想搭建Linux的，可惜这篇教程似乎主要在介绍Windows的部署方法，反正在Linux部署的过程中我被不知名的错误卡住了，但是我在Windows的搭建过程中几乎没有遇到阻碍，所以如果有人希望搭建在Linux平台的话我只能说无能为力，可能需要搜索更多的教程。</p>
 <p>补充2：在更换主题的过程中我几乎将设置全部做完了才开始试运行，结果发现出来的界面是全空白，让我一度以为一天的时间白干了（因为我用了很多的时间去斟酌原来者的东西应当拿什么东西代替）后来发现推荐主题文件夹名字多了一个‘-master’，所以主题没能导入，删去即可，属于是虚惊一场了。</p>
@@ -594,7 +586,7 @@ categories:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Vil10n</a>
+                    <a href="/about" rel="external nofollow noreferrer">v</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -617,7 +609,7 @@ categories:
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Vil10n</a>
+                    <a href="/about" target="_blank">v</a>
                     !
                 </span>
             </div>
@@ -642,12 +634,8 @@ categories:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/install/">
-                                    <span class="chip bg-color">install</span>
-                                </a>
-                            
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
                                 </a>
                             
                         </div>
@@ -769,7 +757,7 @@ categories:
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">老板大气老板身体健康老板长生不老老板永远不死老板一胎一百零八个红豆泥阿里嘎多</h4>
+            <h4 class="reward-title">老板大气身体健康长生不老永远不死一胎一百零八个红豆泥阿里嘎多!!!</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -817,52 +805,50 @@ categories:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/21/intro/">
+                <a href="/2023/02/24/pwntools-ge-ren-shou-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Intro">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="pwntools个人手册">
                         
-                        <span class="card-title">Intro</span>
+                        <span class="card-title">pwntools个人手册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            pwntools看起来和crypto没什么关系，实际上在交互题中非常重要，如果不会就只能坐牢咯。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
+                            <a href="/categories/usage/" class="post-category">
+                                    usage
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/install/">
-                        <span class="chip bg-color">install</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/pwntools/">
+                        <span class="chip bg-color">pwntools</span>
                     </a>
                     
                 </div>
@@ -1085,7 +1071,7 @@ categories:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.8k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             
