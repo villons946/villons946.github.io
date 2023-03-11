@@ -462,7 +462,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.4k
                 </div>
                 
 
@@ -544,7 +544,7 @@
 <p>但是由于2-adic支持除法，这些有理数也是2-adic数，而且这个数列确实2-adic收敛。我们可以得到一个数列，随机选取一个检验，发现确实是可以被2的高次幂整除。</p>
 <hr>
 <h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>这就是padic数系统的优良性质。我们可以利用padic将有理数域扩大，使得极限、连续性和导数等性质适用。</p>
-<p>似乎懂了很多东西，又似乎啥都没懂。如果要应用的话，我会把月赛的adic写成这个形式，但是没成功……</p>
+<p>似乎懂了很多东西，又似乎啥都没懂。如果要应用的话，我会把月赛的adic写成这个形式，但是没成功</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#leak = pow(g, bytes_to_long(s2), p^666)</span>
 <span class="token keyword">import</span> os
 <span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
@@ -563,6 +563,8 @@ s <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token comment">#exponential does not converge</span>
 <span class="token comment">#It seems that the first s is too large.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>在这里我们要解决的是一个离散对数的问题，由于数字非常的大，我觉得是这个原因导致二分法的不适用。但是解方程一定要用二分法吗？在这里我猜测.log()函数就是用于求数字在p-adic中的ln值，根据之前的我们试图用p进数表示有理数的操作来说这个似乎是可以逼近的。还有lift函数在这里应该是将p-adic转换成整型。那么契税这个对数的方程我们可以暂时不去看离散（因为我们用系数都是整数的p-adic表示了有理数，而且自带了范围）我们暂时只看对数，那么<br>$$<br>\log_a^b &#x3D; \ln a&#x2F;\ln b<br>$$<br>在p-adic中，这个数是是可以直接计算的。也就是说我们可以求出无限趋近于0的p-adic数，正巧这个数在666次内。</p>
+<p>至于最后那个ecdlp，似乎还有一些别的东西混进去了……</p>
 
                 
             </div>
@@ -1082,7 +1084,7 @@ s <span class="token operator">=</span> <span class="token number">1</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.4k</span>&nbsp;字
+                class="white-color">7.7k</span>&nbsp;字
             
             
             
