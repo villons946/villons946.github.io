@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="idaPro个人手册, cryptography">
+    <meta name="keywords" content="二次剩余Cipolla, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>idaPro个人手册 | Vil10n</title>
+    <title>二次剩余Cipolla | Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">idaPro个人手册</h1>
+                    <h1 class="description center-align post-title">二次剩余Cipolla</h1>
                 </div>
             </div>
         </div>
@@ -417,13 +417,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/ida/">
-                                <span class="chip bg-color">ida</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -435,6 +431,10 @@
                                 note
                             </a>
                         
+                            <a href="/categories/note/math/" class="post-category">
+                                math
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -444,21 +444,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-04-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-25
+                    2023-04-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    128
+                    1.3k
                 </div>
                 
 
@@ -478,16 +478,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="IDA-特训营"><a href="#IDA-特训营" class="headerlink" title="IDA_特训营"></a>IDA_特训营</h1><p>IDA 7.7</p>
-<p>Python 环境 3.8.x</p>
-<p>课程必备插件</p>
-<p>LazyIDA: <a target="_blank" rel="noopener" href="https://github.com/P4nda0s/LazyIDA">https://github.com/P4nda0s/LazyIDA</a></p>
-<p>Keypatch: <a target="_blank" rel="noopener" href="https://github.com/keystone-engine/keypatch">https://github.com/keystone-engine/keypatch</a> （pip install keystone-engine）</p>
-<p>将插件的 xxx.py 放到 IDA 目录的 plugins 目录</p>
-<p>系统中有多个 python，使用 IDA 目录中的 idapyswitch.exe 切换</p>
-<h2 id="IDA-特训1"><a href="#IDA-特训1" class="headerlink" title="IDA_特训1"></a>IDA_特训1</h2><ul>
-<li><h2 id="空格键切换文本-x2F-图形模式-在图形模式中Ctrl-鼠标滚轮缩放，方便观察控制流-在文本模式中可以看到指令地址、指令间的线性关系、机器码"><a href="#空格键切换文本-x2F-图形模式-在图形模式中Ctrl-鼠标滚轮缩放，方便观察控制流-在文本模式中可以看到指令地址、指令间的线性关系、机器码" class="headerlink" title="空格键切换文本&#x2F;图形模式- 在图形模式中Ctrl+鼠标滚轮缩放，方便观察控制流- 在文本模式中可以看到指令地址、指令间的线性关系、机器码"></a>空格键切换文本&#x2F;图形模式<br>- 在图形模式中Ctrl+鼠标滚轮缩放，方便观察控制流<br>- 在文本模式中可以看到指令地址、指令间的线性关系、机器码</h2></li>
-</ul>
+                <h1 id="二次剩余Cipolla"><a href="#二次剩余Cipolla" class="headerlink" title="二次剩余Cipolla"></a>二次剩余Cipolla</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先二次剩余和cipolla是不同的东西，前者是一个数学定义</p>
+<blockquote>
+<p>对于给定的n和p，在数域F<em>p</em>内如果存在x满足$x^2 \equiv n (mod p) $，那么n在模p意义下就是二次剩余。</p>
+<p>简而言之就是n在模p下能否开根号。</p>
+</blockquote>
+<p>而后者是一个算法，用于快速解出x。</p>
+<h2 id="勒让德符号-Legendre-symbol"><a href="#勒让德符号-Legendre-symbol" class="headerlink" title="勒让德符号(Legendre symbol)"></a>勒让德符号(Legendre symbol)</h2><p>勒让德符号的定义：<br>$$<br>(\frac{a}{p})&#x3D;<br>\begin{cases}<br>1,a为p的二次剩余\<br>-1,a为p的非二次剩余\<br>0,a \equiv 0(modp)<br>\end{cases}<br>$$<br>欧拉判别法：$(\frac{a}{p}) \equiv a^{\frac{p-1}{2}}(mod p)$（若a是不被p整除的正整数）</p>
+<p>我们可以根据这个判别法来判断a在F<em>p</em>下是否为二次剩余。</p>
+<p>根据费马小定理我们可以作如下推演：（在这里假设条件都是理想条件，比如p是大质数…etc）<br>$$<br>a^{p-1} \equiv 1 (modp)<br>\<br>(a^{\frac{p-1}{2}}-1) \times (a^{\frac{p-1}{2}}+1) \equiv 0 (mod p)<br>\<br>a^{\frac{p-1}{2}} &#x3D; \pm 1 (modp)<br>$$<br>我们可以知道这个勒让德符号的值只可能等于$\pm 1,0$，之所以0会出现是因为我们不确定ap是否互质（或者说a是否是p的倍数），当然这种情况不是我们要讨论的重点。</p>
+<p>当$(\frac{a}{p})&#x3D;1$的时候，设$x^2 \equiv a (modp)$，那么$x^{p-1} \equiv 1 (modp)$就有$a^{\frac{p-1}{2}} \equiv 1 (modp)$，证明完毕。</p>
+<p>当$(\frac{a}{p})&#x3D;-1$的时候，方程$x^2 \equiv a (modp)$无解。因为p是素数，由数论知识可知对于每个$1 \leq i \leq p$，都有唯一的整数j使得$ij \equiv a (modp)$。，所以我们可以把1,2，…p-1分成$\frac{p-1}{2}$对，使得每对的乘积都为a。于是$(p-1)! \equiv a^{\frac{p-1}{2}} (modp)$，且由威尔逊定理可知$(p-1)! \equiv -1(modp)$，因此$a^{\frac{p-1}{2}} \equiv -1(modp)$</p>
+<p>于是再加上快速幂的知识，我们就可以快速判定一个数在模p意义下是否是二次剩余的了。</p>
+<h2 id="其他前置知识（引理）"><a href="#其他前置知识（引理）" class="headerlink" title="其他前置知识（引理）"></a>其他前置知识（引理）</h2><ol>
+<li>对于方程$x^2 \equiv n(modp)$，一共有$\frac{p-1}{2}$个不同的n可以使得存在解x。</li>
+</ol>
+<p>现在我们来逆向思考一下，从结果出发，如果我们已经知道了u和v都满足$x^2 \equiv n(modp)$的解，那么必然有$p|(u+v)(u-v)$。由于u-v肯定是小于p的数，也就是说不能整除质数p，那么可以说明p肯定整除u+v。这个推断是充要的，也就是说在数域F<em>p</em>内方程的解是对称且唯二的。另外一共有$\frac{p-1}{2}$种不同的平方，因此存在$\frac{p-1}{2}$个不同的n。</p>
+<ol start="2">
+<li>$(a+b)^p \equiv a^p+b^p (modp)$</li>
+</ol>
+<p>显而易见，直接拆开就能证明。</p>
+<h2 id="Cipolla算法"><a href="#Cipolla算法" class="headerlink" title="Cipolla算法"></a>Cipolla算法</h2><p>我们现在回到主题，希望求出$x^2 \equiv n (mod p) $的一个解。</p>
+<p>先随机出一个a使得$(a^2-n)^{\frac{p-1}{2}} \equiv -1 (modp)$。由于p的非二次剩余的数量占一半，所以随机到一个满足条件的a的期望次数是2（或者说很容易随机出来）。显然这个数$(a^2-n)$不能开根号，但是我们强行给这个数开平方根，并且引入类似虚数的“复数域”$F_{p^2}$.那么这个新的数域中的每一个数都可以表示成$a+ \omega b$的形式。其中$\omega$是这个域的虚数单位元。这个“复数域”依然满足封闭性、交换律、结合律以及分配律的，还存在加法零元和乘法逆元（貌似符合环的定义）。</p>
+<p>为什么要引入这么一个设定呢？</p>
+<h3 id="因为-x-equiv-a-omega-frac-p-1-2-modq"><a href="#因为-x-equiv-a-omega-frac-p-1-2-modq" class="headerlink" title="因为$x \equiv (a+\omega)^{\frac{p+1}{2}}(modq)$"></a>因为$x \equiv (a+\omega)^{\frac{p+1}{2}}(modq)$</h3><p>下面证明这个结论：<br>$$<br>proof:\omega ^p \equiv - \omega(modp)\<br>\omega ^p<br>\equiv \omega \times \omega^{p-1}<br>\equiv w \times (w^2)^{\frac{p-1}{2}}<br>\equiv\ w \times (a^2-n)^{\frac{p-1}{2}}<br>\equiv -\omega<br>$$<br>所以<br>$$<br>\begin{aligned}<br>(a+\omega)^{p+1}<br>&amp;\equiv (a+\omega)^{p}\times (a+\omega)\<br>&amp;\equiv (a^p+\omega^p)\times (a+\omega)\<br>&amp;\equiv (a-\omega)\times(a+\omega)\<br>&amp;\equiv (a^2-\omega^2)\<br>&amp;\equiv (a^2-(a^2-n))\<br>&amp;\equiv n(modq)<br>&amp;\end{aligned}<br>$$</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a_crazy_czy/article/details/51959546">引用csdn的链接</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>之所以会来这里当然是有题目的，但是首先知识点没搞完，其次这个虚数的快速幂还得自己写，我写的时候虚拟机直接卡住了，也不知道是不是这个题目本身数据过大的原因。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> secret <span class="token keyword">import</span> flag<span class="token punctuation">,</span> hint
+m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag <span class="token operator">+</span> os<span class="token punctuation">.</span>urandom<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+p <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span>
+q <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+n <span class="token operator">=</span> p <span class="token operator">*</span> q
+h <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>q <span class="token operator">-</span> <span class="token number">2022</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">2023</span><span class="token punctuation">)</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+<span class="token keyword">assert</span> h <span class="token operator">==</span> <span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> hint<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+e <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">24_000</span>
+c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> e<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>n <span class="token operator">=</span> <span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>c <span class="token operator">=</span> <span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>h <span class="token operator">=</span> <span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>hint <span class="token operator">=</span> <span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># n = 22114546923564420607945063747927422619774890007937503484905798897563036431278699718161460968350749338680452479484253816646632515078192048118109272532310403715802657061990320170724360874028667484527150185159662403573637809180151665727445208585725264186578429094937215068881079399747998551453944363665401263</span>
+<span class="token comment"># c = 7274219309267176700435453490636404568410293850833252412471984274955007037941820465929958008672185817002749418809077052781794306899476543760452010370102811167685901654480233874375880047900499814304539829706786470978714629827690730256369200773772396109793338097451559255985268375731804819829315168807228186</span>
+<span class="token comment"># h = 1463929459818798711929811606552273520156490689917243949474579232718301828387871678397965433435537694532920957475947201372279363554005600100100224291888130</span>
+<span class="token comment"># hint = 5610276127312766429915480651516095336201056367031530733662980757514427535721885723009367286870294772595629284861923351543396909892645845139050780691701736</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>目前的exp就不放了毕竟是错的还特别丑。就当做学了个很神奇的算法吧。（印象中好像有非预期解的人跑了几个小时，没意思了。</p>
 
                 
             </div>
@@ -514,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/24/idapro-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/idapro-ge-ren-shou-ce/</a>
+                    <a href="https://villons946.github.io/2023/04/05/er-ci-sheng-yu-cipolla/">https://villons946.github.io/2023/04/05/er-ci-sheng-yu-cipolla/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,11 +591,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/ida/">
-                                    <span class="chip bg-color">ida</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -723,49 +759,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/02/24/python-ge-ren-shou-ce/">
+                <a href="/2023/04/05/er-ci-sheng-yu-cipolla/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="python个人手册">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="二次剩余Cipolla">
                         
-                        <span class="card-title">python个人手册</span>
+                        <span class="card-title">二次剩余Cipolla</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这不是新手向的教程，是我给自己写的一些容易忘记的函数用法以及别的库等等。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/usage/" class="post-category">
-                                    usage
+                            <a href="/categories/note/" class="post-category">
+                                    note
+                                </a>
+                            
+                            <a href="/categories/note/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -776,31 +810,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/24/gu-dian-mi-ma-yu-bian-ma/">
+                <a href="/2023/03/10/p-adic-learning-note/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="古典密码与编码">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="p-adic learning note">
                         
-                        <span class="card-title">古典密码与编码</span>
+                        <span class="card-title">p-adic learning note</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想记录尽可能多的古典密码或者奇怪的编码以及各自的特点。
+                            一个p-adic相关的视频，试图学习。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/usage/" class="post-category">
-                                    usage
+                            <a href="/categories/note/" class="post-category">
+                                    note
                                 </a>
                             
                             
@@ -812,6 +846,10 @@
                     
                     <a href="/tags/crypto/">
                         <span class="chip bg-color">crypto</span>
+                    </a>
+                    
+                    <a href="/tags/math/">
+                        <span class="chip bg-color">math</span>
                     </a>
                     
                 </div>
@@ -979,6 +1017,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
