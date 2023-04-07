@@ -451,14 +451,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-05
+                    2023-04-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.9k
                 </div>
                 
 
@@ -503,7 +503,8 @@
 <p>为什么要引入这么一个设定呢？</p>
 <h3 id="因为-x-equiv-a-omega-frac-p-1-2-modq"><a href="#因为-x-equiv-a-omega-frac-p-1-2-modq" class="headerlink" title="因为$x \equiv (a+\omega)^{\frac{p+1}{2}}(modq)$"></a>因为$x \equiv (a+\omega)^{\frac{p+1}{2}}(modq)$</h3><p>下面证明这个结论：<br>$$<br>proof:\omega ^p \equiv - \omega(modp)\<br>\omega ^p<br>\equiv \omega \times \omega^{p-1}<br>\equiv w \times (w^2)^{\frac{p-1}{2}}<br>\equiv\ w \times (a^2-n)^{\frac{p-1}{2}}<br>\equiv -\omega<br>$$<br>所以<br>$$<br>\begin{aligned}<br>(a+\omega)^{p+1}<br>&amp;\equiv (a+\omega)^{p}\times (a+\omega)\<br>&amp;\equiv (a^p+\omega^p)\times (a+\omega)\<br>&amp;\equiv (a-\omega)\times(a+\omega)\<br>&amp;\equiv (a^2-\omega^2)\<br>&amp;\equiv (a^2-(a^2-n))\<br>&amp;\equiv n(modq)<br>&amp;\end{aligned}<br>$$</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a_crazy_czy/article/details/51959546">引用csdn的链接</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>之所以会来这里当然是有题目的，但是首先知识点没搞完，其次这个虚数的快速幂还得自己写，我写的时候虚拟机直接卡住了，也不知道是不是这个题目本身数据过大的原因。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>后来给了hint：</p>
+<p>当q mod 4&#x3D;3时用quadratic residues开方，当q mod 4&#x3D;1时用cipolla算法开方。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
 <span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
 <span class="token keyword">from</span> secret <span class="token keyword">import</span> flag<span class="token punctuation">,</span> hint
@@ -527,7 +528,116 @@ c <span class="token operator">=</span> <span class="token builtin">pow</span><s
 <span class="token comment"># hint = 5610276127312766429915480651516095336201056367031530733662980757514427535721885723009367286870294772595629284861923351543396909892645845139050780691701736</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>目前的exp就不放了毕竟是错的还特别丑。就当做学了个很神奇的算法吧。（印象中好像有非预期解的人跑了几个小时，没意思了。</p>
+<p>目前的exp就不放了毕竟是错的还特别丑。就当做学了个很神奇的算法吧。（印象中好像有暴力跑的人跑了几个小时，没意思了。</p>
+<p><del>放一个官方的wp但是有个自己写的库的。</del></p>
+<p>好像能跑了，所以放上自己的代码，说起来这是我第一次用GitHub上的代码，也就是这段Cipolla部分，下面的东西是抄wp的，把c关于p的解解出来。</p>
+<p>接下来就遇到了第二个函数了。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">quadratic_residues</span><span class="token punctuation">(</span>_p<span class="token punctuation">,</span> _c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>_c<span class="token punctuation">,</span> <span class="token punctuation">(</span>_p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">4</span><span class="token punctuation">,</span> _p<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这个函数的逻辑是首先知道q%4&#x3D;&#x3D;3所以(_p + 1) &#x2F;&#x2F; 4的运算肯定是整除运算。然后用勒让德符号判定这个数c能否开根，如果可以的话那么$1\equiv a^{\frac{p-1}{2}}(mod p)$再用这个乘以a得到$a\equiv a^{\frac{p+1}{2}}(mod p)$而且我们还知道右边的幂是偶数，所以我们直接对幂除以二理论上可以得到$\sqrt(a)$。</p>
+<p>当然不嫌麻烦的话理论上cipolla是通杀的，就是慢了点。</p>
+<p>然后用中国剩余定理变成关于n的解，并且将这些解存进一个数组里面，然后循环24000次，最后从解里面筛选包含HZNU开头的东西打印出来。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> random <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a <span class="token punctuation">,</span>b <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>a <span class="token operator">=</span> a
+        self<span class="token punctuation">.</span>b <span class="token operator">=</span> b
+
+<span class="token keyword">def</span> <span class="token function">Cmul</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> i1<span class="token punctuation">,</span> i2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    c <span class="token operator">=</span> a<span class="token operator">*</span>a <span class="token operator">-</span>n
+    t <span class="token operator">=</span> C <span class="token punctuation">(</span><span class="token punctuation">(</span>i1<span class="token punctuation">.</span>a <span class="token operator">*</span> i2<span class="token punctuation">.</span>a <span class="token operator">+</span> i1<span class="token punctuation">.</span>b <span class="token operator">*</span> i2<span class="token punctuation">.</span>b <span class="token operator">%</span> p <span class="token operator">*</span> c<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">,</span><span class="token punctuation">(</span>i1<span class="token punctuation">.</span>b <span class="token operator">*</span> i2<span class="token punctuation">.</span>a <span class="token operator">+</span> i1<span class="token punctuation">.</span>a <span class="token operator">*</span> i2<span class="token punctuation">.</span>b<span class="token punctuation">)</span> <span class="token operator">%</span> p <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> t
+
+<span class="token keyword">def</span> <span class="token function">Cqsm</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    z <span class="token operator">=</span> C<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> y <span class="token punctuation">:</span>
+        <span class="token keyword">if</span> y <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            z <span class="token operator">=</span> Cmul <span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> z<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+        x <span class="token operator">=</span> Cmul <span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> x<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+        y <span class="token operator">>></span><span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> z
+
+
+<span class="token keyword">def</span> <span class="token function">quick_power</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a<span class="token operator">=</span>a<span class="token operator">%</span>c
+    ans<span class="token operator">=</span><span class="token number">1</span>
+    <span class="token keyword">while</span> b<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> b<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">:</span>
+            ans<span class="token operator">=</span><span class="token punctuation">(</span>ans<span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token operator">%</span>c
+        b<span class="token operator">>></span><span class="token operator">=</span><span class="token number">1</span>
+        a<span class="token operator">=</span><span class="token punctuation">(</span>a<span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token operator">%</span>c
+    <span class="token keyword">return</span> ans
+<span class="token keyword">def</span> <span class="token function">mod</span><span class="token punctuation">(</span> a<span class="token punctuation">,</span>  p<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">%</span> p <span class="token operator">+</span> p<span class="token punctuation">)</span> <span class="token operator">%</span> p
+
+
+<span class="token keyword">def</span> <span class="token function">legendre</span><span class="token punctuation">(</span> a<span class="token punctuation">,</span>  p<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 勒让德符号</span>
+    <span class="token keyword">return</span> quick_power<span class="token punctuation">(</span>mod<span class="token punctuation">(</span>a<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">Cipolla</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n <span class="token operator">%</span> p <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">if</span> legendre<span class="token punctuation">(</span>n<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">while</span>  <span class="token boolean">True</span><span class="token punctuation">:</span>
+        a<span class="token operator">=</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>p
+        w<span class="token operator">=</span><span class="token punctuation">(</span>a<span class="token operator">*</span>a<span class="token operator">-</span>n<span class="token operator">+</span>p<span class="token punctuation">)</span><span class="token operator">%</span>p
+        <span class="token keyword">if</span> legendre<span class="token punctuation">(</span>a <span class="token operator">*</span> a <span class="token operator">-</span> n<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">==</span> p <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    u <span class="token operator">=</span> C<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    u <span class="token operator">=</span> Cqsm<span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">,</span> u<span class="token punctuation">,</span> <span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span> <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> mod<span class="token punctuation">(</span>u<span class="token punctuation">.</span>a<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">quadratic_residues</span><span class="token punctuation">(</span>_p<span class="token punctuation">,</span> _c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>_c<span class="token punctuation">,</span> <span class="token punctuation">(</span>_p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">4</span><span class="token punctuation">,</span> _p<span class="token punctuation">)</span>
+
+
+n0 <span class="token operator">=</span> <span class="token number">22114546923564420607945063747927422619774890007937503484905798897563036431278699718161460968350749338680452479484253816646632515078192048118109272532310403715802657061990320170724360874028667484527150185159662403573637809180151665727445208585725264186578429094937215068881079399747998551453944363665401263</span>
+c <span class="token operator">=</span> <span class="token number">7274219309267176700435453490636404568410293850833252412471984274955007037941820465929958008672185817002749418809077052781794306899476543760452010370102811167685901654480233874375880047900499814304539829706786470978714629827690730256369200773772396109793338097451559255985268375731804819829315168807228186</span>
+h <span class="token operator">=</span> <span class="token number">1463929459818798711929811606552273520156490689917243949474579232718301828387871678397965433435537694532920957475947201372279363554005600100100224291888130</span>
+hint <span class="token operator">=</span> <span class="token number">5610276127312766429915480651516095336201056367031530733662980757514427535721885723009367286870294772595629284861923351543396909892645845139050780691701736</span>
+
+p <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span>
+q <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+
+<span class="token keyword">assert</span> <span class="token punctuation">(</span>q <span class="token operator">-</span> <span class="token number">2022</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2024</span> <span class="token operator">&lt;</span> p <span class="token operator">-</span> <span class="token number">1</span>
+
+q <span class="token operator">=</span> hint <span class="token operator">//</span> <span class="token number">2024</span> <span class="token operator">+</span> <span class="token number">2022</span>
+<span class="token keyword">assert</span> n0 <span class="token operator">%</span> q <span class="token operator">==</span> <span class="token number">0</span>
+p <span class="token operator">=</span> n0 <span class="token operator">//</span> q
+
+<span class="token keyword">assert</span> p <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">1</span>
+<span class="token keyword">assert</span> q <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">3</span>
+
+x <span class="token operator">=</span> <span class="token punctuation">[</span>c<span class="token punctuation">]</span>
+<span class="token keyword">for</span> _ <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">24_000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    tmp_x<span class="token punctuation">,</span> x <span class="token operator">=</span> x<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> tmp_x<span class="token punctuation">:</span>
+        x1 <span class="token operator">=</span> Cipolla<span class="token punctuation">(</span>i<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+        x2 <span class="token operator">=</span> p <span class="token operator">-</span> x1
+        <span class="token keyword">if</span> x1 <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> x2 <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        x<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x1<span class="token punctuation">)</span>
+        x<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x2<span class="token punctuation">)</span>
+    c <span class="token operator">=</span> quadratic_residues<span class="token punctuation">(</span>q<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token punctuation">[</span>c<span class="token punctuation">,</span> q <span class="token operator">-</span> c<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        m <span class="token operator">=</span> crt<span class="token punctuation">(</span><span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>p<span class="token punctuation">,</span> q<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token string">b'HZNUCTF'</span> <span class="token keyword">in</span> long_to_bytes<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>long_to_bytes<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            exit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>事实上最后我也跑不出来……</p>
+<p>![08WI(5O$R&#96;SRG)IITDQ1W%6](D:&#x2F;vblog&#x2F;source&#x2F;_posts&#x2F;%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99Cipolla.assets&#x2F;08WI(5O$R%60SRG)IITDQ1W%256.png)</p>
+<p>这是跑了两个小时的结果捏。</p>
 
                 
             </div>
@@ -1043,7 +1153,7 @@ c <span class="token operator">=</span> <span class="token builtin">pow</span><s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.2k</span>&nbsp;字
+                class="white-color">9.9k</span>&nbsp;字
             
             
             
