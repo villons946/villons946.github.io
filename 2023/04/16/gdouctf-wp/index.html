@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pwntools个人手册, cryptography">
+    <meta name="keywords" content="GDOUCTF_wp, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pwntools个人手册 | Vil10n</title>
+    <title>GDOUCTF_wp | Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pwntools个人手册</h1>
+                    <h1 class="description center-align post-title">GDOUCTF_wp</h1>
                 </div>
             </div>
         </div>
@@ -417,29 +417,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/pwntools/">
-                                <span class="chip bg-color">pwntools</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/usage/" class="post-category">
-                                usage
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -448,21 +431,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-04-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-04-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12
+                    1.1k
                 </div>
                 
 
@@ -482,7 +465,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pwntools个人手册"><a href="#pwntools个人手册" class="headerlink" title="pwntools个人手册"></a>pwntools个人手册</h1><p>目前还啥都不会。</p>
+                <h1 id="GDOUCTF2023"><a href="#GDOUCTF2023" class="headerlink" title="GDOUCTF2023"></a>GDOUCTF2023</h1><h2 id="Absolute-Baby-Encrytpion"><a href="#Absolute-Baby-Encrytpion" class="headerlink" title="Absolute_Baby_Encrytpion"></a>Absolute_Baby_Encrytpion</h2><p>古典密码，简单替换，只不过js我不会，自己手动做了密码表……</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">l1<span class="token operator">=</span><span class="token string">'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*()_+-=`~&#123;&#125;[]|:;\"\'&lt;>,.?/'</span>
+l2<span class="token operator">=</span><span class="token string">'!1)vm+q0c](&#125;[85$*i>#&lt;?o^-_hwe9gzd~=xj:4b`13t6sn;\'rkp\"&amp;/\\2.%|,@&#123;u7ya'</span>
+n<span class="token operator">=</span><span class="token number">0</span>
+c<span class="token operator">=</span><span class="token string">'+&#125;!q")hiim)#&#125;-nvm)i-$#mvn#0mnbm)im#n+&#125;!qnm8)i-$#mvnoc#0nz&lt;$9inm!>-n1:1-nm8)i-$~c58n!&#125;qhij#0[noic##m8nc8n?!8c&#125;w!n]>&amp;'</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    m<span class="token operator">=</span><span class="token string">''</span>
+    n <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> c<span class="token punctuation">:</span>
+        tmp <span class="token operator">=</span> l1<span class="token punctuation">[</span>l2<span class="token punctuation">.</span>index<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        m <span class="token operator">+=</span> tmp
+    <span class="token keyword">if</span> m<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'nssctf&#123;'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+        quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token operator">=</span>m
+    <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="babylua"><a href="#babylua" class="headerlink" title="babylua"></a>babylua</h2><p>lua还是不会，让bing给我逐行解释一下。</p>
+<p><del>什么密码比赛啊做两题学两门语言</del></p>
+<blockquote>
+<p>好的，我会尽力解释这段代码的每一行。请看以下的注释：</p>
+<p>local flag &#x3D; ‘’ –这里是你要逆推出的flag – 这一行定义了一个局部变量 flag，用来存储你要加密的字符串，目前为空</p>
+<p>local md5 &#x3D; require(“md5”) – 这一行导入了一个名为 md5 的模块，用来计算字符串的 MD5 哈希值</p>
+<p>math.randomseed(os.time()) – 这一行设置了随机数种子，用当前的系统时间作为参数</p>
+<p>local function randomStr(len) local rankStr &#x3D; “” local randNum &#x3D; 0 for i &#x3D; 1, len do randNum &#x3D; math.random(1, 2) if randNum &#x3D;&#x3D; 1 then rankStr &#x3D; rankStr … string.char(math.random(65, 90)) elseif randNum &#x3D;&#x3D; 2 then rankStr &#x3D; rankStr … string.char(math.random(97, 122)) end end return rankStr end – 这一段定义了一个局部函数 randomStr，用来生成一个指定长度的随机字符串 – 函数内部定义了两个局部变量 rankStr 和 randNum，分别用来存储生成的字符串和随机数 – 函数使用了一个 for 循环，从 1 到 len 遍历 – 每次循环中，先生成一个 1 到 2 的随机数，赋值给 randNum – 如果 randNum 等于 1，就在 rankStr 后面拼接一个 65 到 90 的随机 ASCII 码对应的大写字母 – 如果 randNum 等于 2，就在 rankStr 后面拼接一个 97 到 122 的随机 ASCII 码对应的小写字母 – 最后返回 rankStr</p>
+<p>local seed &#x3D; randomStr(4) local key &#x3D; md5.sumhexa(md5.sumhexa(seed)) print(key:sub(1,10)) – 这三行调用了 randomStr 函数和 md5 模块的方法，生成了一个十位的十六进制字符串 key，并打印出来 – 首先调用 randomStr(4) 生成一个四位的随机字符串，赋值给局部变量 seed – 然后调用 md5.sumhexa(md5.sumhexa(seed)) 对 seed 进行两次 MD5 哈希运算，并转换为十六进制字符串，赋值给局部变量 key – 最后调用 key:sub(1,10) 截取 key 的前十位，并打印出来</p>
+<p>secret &#x3D; {} – 这一行定义了一个全局变量 secret，用来存储加密后的结果，初始化为空表</p>
+<p>for i &#x3D; 1, #flag do secret[i] &#x3D; string.byte(flag:sub(i,i)) + string.byte(key:sub(i,i)) end – 这一段使用了一个 for 循环，对 flag 和 key 进行逐位加密，并将结果存入 secret 表中 – 循环从 1 到 #flag 遍历，#flag 表示 flag 的长度 – 每次循环中，先调用 flag:sub(i,i) 截取 flag 的第 i 位字符，然后调用 string.byte() 将其转换为 ASCII 码数值 – 然后调用 key:sub(i,i) 截取 key 的第 i 位字符，然后调用 string.byte() 将其转换为 ASCII 码数值 – 最后将两个数值相加，并赋值给 secret[i]</p>
+<p>for i, v in ipairs(secret) do io.write(v, ’ ‘) end – 这一段使用了一个 for 循环，遍历 secret 表中的每个元素，并打印出来 – 循环使用 ipairs 函数按照索引顺序遍历 secret 表，每次循环中得到索</p>
+</blockquote>
+<p>后面因为太长被枪毙了我也看不到，但是已经可以知道加密原理了。</p>
+<p>先是随机4个字母，以此用md5生成32位的key，但是只给前十位。</p>
+<p>接下来把flag的ASCII值加上md5相应字母的值，得到输出。</p>
+<p>md5可以直接爆破出来。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token triple-quoted-string string">'''
+import itertools
+from hashlib import md5
+from tqdm import *
+import string
+
+st='b5e62abe84'
+table = string.ascii_lowercase + string.ascii_uppercase
+strlist = itertools.product(table, repeat=4)
+print(table)
+for i in tqdm(strlist):
+	tmp = i[0] + i[1] + i[2] + i[3]
+	bru = md5(md5(tmp.encode('utf-8')).hexdigest().encode()).hexdigest()
+	if bru.startswith(st):
+		print(bru)
+	'''</span>
+	<span class="token comment">#data_sha=hashlib.md5((data).encode('utf-8')).hexdigest()</span>
+key <span class="token operator">=</span> <span class="token string">'b5e62abe84bc8afbfd97c91a15aa0867'</span>
+c <span class="token operator">=</span> <span class="token string">'200 161 198 157 173 169 199 150 105 163 193 175 173 194 135 131 135 225'</span>
+c <span class="token operator">=</span> c<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> c<span class="token punctuation">]</span>
+d<span class="token operator">=</span><span class="token string">b''</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-=</span> bytes_to_long<span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	d <span class="token operator">+=</span> long_to_bytes<span class="token punctuation">(</span>c<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -499,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Vil10n</a>
+                    <a href="/about" rel="external nofollow noreferrer">v</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -509,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/</a>
+                    <a href="https://villons946.github.io/2023/04/16/gdouctf-wp/">https://villons946.github.io/2023/04/16/gdouctf-wp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -522,7 +570,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Vil10n</a>
+                    <a href="/about" target="_blank">v</a>
                     !
                 </span>
             </div>
@@ -546,15 +594,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/pwntools/">
-                                    <span class="chip bg-color">pwntools</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -726,31 +766,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/24/gu-dian-mi-ma-yu-bian-ma/">
+                <a href="/2023/08/27/zai-lun-ge-mi-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="古典密码与编码">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="再论格密码">
                         
-                        <span class="card-title">古典密码与编码</span>
+                        <span class="card-title">再论格密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想记录尽可能多的古典密码或者奇怪的编码以及各自的特点。
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/usage/" class="post-category">
-                                    usage
+                            <a href="/categories/crypto/" class="post-category">
+                                    crypto
                                 </a>
                             
                             
@@ -760,8 +800,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/crypto/">
-                        <span class="chip bg-color">crypto</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -775,13 +815,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/21/intro/">
+                <a href="/2023/04/14/you-xian-yu-kai-gen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Intro">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="有限域开根">
                         
-                        <span class="card-title">Intro</span>
+                        <span class="card-title">有限域开根</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -792,7 +832,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
                             </span>
                         <span class="publish-author">
                             
@@ -802,21 +842,13 @@
                                     note
                                 </a>
                             
-                            <a href="/categories/note/install/" class="post-category">
-                                    install
+                            <a href="/categories/note/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -982,6 +1014,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pwntools个人手册, cryptography">
+    <meta name="keywords" content="再论格密码, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pwntools个人手册 | Vil10n</title>
+    <title>再论格密码 | Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pwntools个人手册</h1>
+                    <h1 class="description center-align post-title">再论格密码</h1>
                 </div>
             </div>
         </div>
@@ -423,10 +423,6 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/pwntools/">
-                                <span class="chip bg-color">pwntools</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -435,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/usage/" class="post-category">
-                                usage
+                            <a href="/categories/crypto/" class="post-category">
+                                crypto
                             </a>
                         
                     </div>
@@ -448,21 +444,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-08-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-09-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12
+                    1.3k
                 </div>
                 
 
@@ -482,8 +478,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pwntools个人手册"><a href="#pwntools个人手册" class="headerlink" title="pwntools个人手册"></a>pwntools个人手册</h1><p>目前还啥都不会。</p>
+                <h1 id="再论格密码"><a href="#再论格密码" class="headerlink" title="再论格密码"></a>再论格密码</h1><blockquote>
+<p>过了一年，在学完了高等代数的情况下再回来看曾经学的知识，已经轻松了不少。</p>
+<p>这是在山石夏令营里面听Tover讲的格密码入门学习笔记。</p>
+</blockquote>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>起因是一道题目</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">bits <span class="token operator">=</span> <span class="token number">512</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+	q <span class="token operator">=</span> random_prime<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span>bits<span class="token punctuation">,</span> lbound <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span>bits<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	R <span class="token operator">=</span> Gf<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
+	f <span class="token operator">=</span> R<span class="token punctuation">(</span>random_prime<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span>bits<span class="token operator">//</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	g <span class="token operator">=</span> R<span class="token punctuation">(</span>random_prime<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span>bits<span class="token operator">//</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lbound <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span>bits<span class="token operator">//</span><span class="token number">4</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> gcd<span class="token punctuation">(</span>f<span class="token punctuation">,</span> q<span class="token operator">*</span>g<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+		h <span class="token operator">=</span> f<span class="token operator">^</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>g
+		<span class="token keyword">break</span>
 
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'q = %d'</span> <span class="token operator">%</span>q<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'h = %d'</span> <span class="token operator">%</span>h<span class="token punctuation">)</span>
+
+<span class="token comment">#Aim: find f and g</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里面包含的题目条件比较特别：</p>
+<ol>
+<li><p>随机选择大的模数q</p>
+</li>
+<li><p>选择保密的整数f和g。它们满足范围要求和数值要求<br>$$<br>f&lt;\sqrt{q&#x2F;2}\\sqrt{q&#x2F;4}&lt;g&lt;\sqrt{q&#x2F;2}\gcd(f,q\times g)&#x3D;1<br>$$</p>
+</li>
+<li><p>计算$h\equiv f^{-1}\times g(mod\quad q)$</p>
+</li>
+</ol>
+<p>那么，我们就得到了一条有三个未知数的方程：<br>$$<br>fh-kq&#x3D;g<br>$$<br>显然这是一个有无数个整数解的不定方程，我们稍微改变一下这个方程的写法，把方程的左边变成两个向量相乘的形式。<br>$$<br>(h, -k)* (f, q)&#x3D;g<br>$$<br>我们再补上一个事实h&#x3D;h，使得已知的向量变成一个2×2的矩阵<br>$$<br>(h,-k)*<br>\left[<br>\begin{matrix}<br>1 &amp; f\<br>0 &amp; q<br>\end{matrix}<br>\right]<br>&#x3D;(h,g)<br>$$<br>事实上，大多数NTRU的题目中，寻找这个矩阵就是我们要完成是事情，它应当具有以下的性质。</p>
+<blockquote>
+<p>等式右边的向量的长度，应当小于矩阵的行列式开方。</p>
+</blockquote>
+<h2 id="格"><a href="#格" class="headerlink" title="格"></a>格</h2><p>我们知道，两个线性无关的向量的线性组合可以表示一个平面。或者说，一个平面可以被该平面上的两个不平行的向量的线性组合表示，这个时候，我们称这两个向量为这个平面的一组基。</p>
+<p>但是，我们想要表示这个平面上的任意一点的前提是，线性组合里面的两个系数都可以是任意实数。但是当我们要求向量和系数都是在某个整数域内的时候，两个向量的线性组合就不会覆盖一整个平面，而是会成为一个个格点的形式，如果是三个线性无关的向量，那么它们的线性组合就会是空间上类似晶格的东西。当向量的个数不断增加的时候，就会越来越抽象。但是不管是几维问题，向量都只有一个长度。</p>
+<p>我们称这种基底为格基。显然一个格可以由里面各种非线性组合的向量组成格基，那么这组格基一定有一个长度的最小值。或者说，这些格基的线性组合中一定有长度最短的向量。</p>
+<p>有一条式子叫做高斯启发式The Gaussian Heuristic<br>$$<br>\sigma (L)&#x3D;\sqrt{\frac{n}{2\pi e}}\times(det\quad L)^{1&#x2F;n}<br>$$<br>它的意义是在一个任意选择的格中，最短的非零向量满足<br>$$<br>||v_{shortest}||\approx \sigma(L)<br>$$<br>我们对于这条式子的理解就是，长度小于等于$\sigma(L)$的向量很少或者只有一个，那么如果我们能求出最短的向量，而且题目里面的那个所求的向量确实大小相符，那么我们求出来的很可能是正确的结果。</p>
+<p>众所周知在位数面前系数的大小显得很苍白，所以我们一般只比较二进制位数的大小，也就是<br>$$<br>||v_{shortest}||\approx det(L)<br>$$<br>在这条式子的前后还有非常多的相关描述，但是目前来说我们需要暂时把这条结论记住。</p>
+<h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p>关于开头的构造一个矩阵，其本质就是构造出这样的一个格。请注意这里面已知数的位数和未知数应当具有的位数是经过设计的。</p>
+<p>我们所求的f和g的长度应当都不到q的一半，它们组成的向量应当也是差不多的长度，而且矩阵<br>$$<br>\left[<br>\begin{matrix}<br>1 &amp; f\<br>0 &amp; q<br>\end{matrix}<br>\right]<br>$$<br>的行列式就是q，它是2阶的，开平方根得到的结果长度也应当在q长度的一半左右。那么我们只需要求这组格基的最短向量，就很可能可以求出$(f,g)$。</p>
+<h2 id="基本题解"><a href="#基本题解" class="headerlink" title="基本题解"></a>基本题解</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> 
+h <span class="token operator">=</span> 
+
+<span class="token comment">#hack</span>
+M <span class="token operator">=</span> matrix<span class="token punctuation">(</span>ZZ<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> h<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> q<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+L <span class="token operator">=</span> M<span class="token punctuation">.</span>LLL<span class="token punctuation">(</span><span class="token punctuation">)</span>
+f<span class="token punctuation">,</span> g <span class="token operator">=</span> L<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+f <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+g <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+
+<span class="token comment">#check</span>
+R <span class="token operator">=</span> GF<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
+<span class="token keyword">assert</span> R<span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token operator">==</span> R<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>R<span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'f = %d'</span> <span class="token operator">%</span>f<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'g = %d'</span> <span class="token operator">%</span>g<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配平"><a href="#配平" class="headerlink" title="配平"></a>配平</h2><p>如果数字大小不对，那么这也可能是设计。我们还有一点机会可以依葫芦画瓢。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="高斯启发式的由来"><a href="#高斯启发式的由来" class="headerlink" title="高斯启发式的由来"></a>高斯启发式的由来</h3><h3 id="高斯启发式的局限"><a href="#高斯启发式的局限" class="headerlink" title="高斯启发式的局限"></a>高斯启发式的局限</h3><ol>
+<li>维度不能太高，否则LLL算法可能不能帮你找到最短向量</li>
+<li>需要格比较随机，否则可能找错。</li>
+<li>启发式只是估计，并没有什么证明或者保证只有1个。</li>
+</ol>
+<h3 id="一些其他背景知识"><a href="#一些其他背景知识" class="headerlink" title="一些其他背景知识"></a>一些其他背景知识</h3><h4 id="最短向量问题SVP"><a href="#最短向量问题SVP" class="headerlink" title="最短向量问题SVP"></a>最短向量问题SVP</h4><h4 id="LLL算法"><a href="#LLL算法" class="headerlink" title="LLL算法"></a>LLL算法</h4>
                 
             </div>
             <hr/>
@@ -499,7 +559,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Vil10n</a>
+                    <a href="/about" rel="external nofollow noreferrer">v</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -509,7 +569,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/</a>
+                    <a href="https://villons946.github.io/2023/08/27/zai-lun-ge-mi-ma/">https://villons946.github.io/2023/08/27/zai-lun-ge-mi-ma/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -522,7 +582,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Vil10n</a>
+                    <a href="/about" target="_blank">v</a>
                     !
                 </span>
             </div>
@@ -549,10 +609,6 @@
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/pwntools/">
-                                    <span class="chip bg-color">pwntools</span>
                                 </a>
                             
                         </div>
@@ -722,46 +778,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/02/24/gu-dian-mi-ma-yu-bian-ma/">
+                <a href="/2023/08/27/zai-lun-ge-mi-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="古典密码与编码">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="再论格密码">
                         
-                        <span class="card-title">古典密码与编码</span>
+                        <span class="card-title">再论格密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想记录尽可能多的古典密码或者奇怪的编码以及各自的特点。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/usage/" class="post-category">
-                                    usage
+                            <a href="/categories/crypto/" class="post-category">
+                                    crypto
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/crypto/">
-                        <span class="chip bg-color">crypto</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -775,13 +833,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/21/intro/">
+                <a href="/2023/04/16/gdouctf-wp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Intro">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="GDOUCTF_wp">
                         
-                        <span class="card-title">Intro</span>
+                        <span class="card-title">GDOUCTF_wp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -792,31 +850,15 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/note/" class="post-category">
-                                    note
-                                </a>
-                            
-                            <a href="/categories/note/install/" class="post-category">
-                                    install
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            v
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -982,6 +1024,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
