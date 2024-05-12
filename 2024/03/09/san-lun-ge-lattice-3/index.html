@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pwntools个人手册, cryptography">
+    <meta name="keywords" content="cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pwntools个人手册 | Vil10n</title>
+    <title>Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pwntools个人手册</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -417,29 +417,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/pwntools/">
-                                <span class="chip bg-color">pwntools</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/usage/" class="post-category">
-                                usage
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -448,21 +431,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2024-03-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2024-02-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12
+                    1.6k
                 </div>
                 
 
@@ -482,7 +465,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pwntools个人手册"><a href="#pwntools个人手册" class="headerlink" title="pwntools个人手册"></a>pwntools个人手册</h1><p>目前还啥都不会。</p>
+                <h1 id="三论格LATTICE-3"><a href="#三论格LATTICE-3" class="headerlink" title="三论格LATTICE_3"></a>三论格LATTICE_3</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1312093478458458112">格密码理论与应用实践</a></p>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="1-Lattices"><a href="#1-Lattices" class="headerlink" title="1. Lattices"></a>1. Lattices</h2><h3 id="Lattices定义"><a href="#Lattices定义" class="headerlink" title="Lattices定义"></a>Lattices定义</h3><p>给定n个线性无关向量$b_1,b_2,…,b_n \in R^m$，由它们产生的格被定义为<br>$$<br>L(b_1,b_2,…,b_n)&#x3D;{\sum{x_i}b_i|x_i \in Z}<br>$$<br>这n个向量$b_i,i&#x3D;1,2,…,n$就是格的基。</p>
+<p>等价地，也可以把向量作为列连成矩阵，把X作为一个n维列向量。<br>$$<br>L(B)&#x3D;{Bx|x\in Z^n}<br>$$<br>n为格的秩，m为格的维数，n&#x3D;m为满格。我们暂时只考虑满格。</p>
+<blockquote>
+<p>事实上，B的列向量线性无关，因此其列秩为n，因此秩为n。</p>
+</blockquote>
+<h3 id="SPAN"><a href="#SPAN" class="headerlink" title="SPAN"></a>SPAN</h3><p>格基向量张成的空间<br>$$<br>span(L(B))&#x3D;span(B)&#x3D;{By|y\in R^n}<br>$$</p>
+<h3 id="Basic-Parallelepiped基础区域"><a href="#Basic-Parallelepiped基础区域" class="headerlink" title="Basic Parallelepiped基础区域"></a>Basic Parallelepiped基础区域</h3><p>$$<br>P(B)&#x3D;{Bx|0&lt;&#x3D;x&lt;1}<br>$$</p>
+<h3 id="Tiling-Span"><a href="#Tiling-Span" class="headerlink" title="Tiling Span"></a>Tiling Span</h3><p>在每一个格点放置一个P(B)副本，得到整个tiling span</p>
+<h3 id="Lemma1"><a href="#Lemma1" class="headerlink" title="Lemma1"></a>Lemma1</h3><p>基础区域不应包含除了远点外的任何格点（x的左闭右开式一个细节）</p>
+<p>设$\Lambda$为秩n的格，设$b_i\in \Lambda,i&#x3D;1,2,…,n$为n个线性无关的格向量。则$b_i,i&#x3D;1,2,…,n$表示为格的基，当且仅当$P(b_1,b_2,…,b_n)\cap\Lambda&#x3D;0$事实上这个0应指代零向量。</p>
+<h3 id="幺模矩阵"><a href="#幺模矩阵" class="headerlink" title="幺模矩阵"></a>幺模矩阵</h3><p>设U为n阶方阵，行列式绝对值为1，则称为幺模矩阵。</p>
+<h3 id="Lemma2"><a href="#Lemma2" class="headerlink" title="Lemma2"></a>Lemma2</h3><p>幺模矩阵的逆也是幺模矩阵，而且求逆元对$Z^n$封闭。</p>
+<h3 id="Lemma3"><a href="#Lemma3" class="headerlink" title="Lemma3"></a>Lemma3</h3><p>两组基B1B2等价，当且仅当B2&#x3D;B1U，其中U为某个幺模矩阵。</p>
+<h3 id="Lemma4"><a href="#Lemma4" class="headerlink" title="Lemma4"></a>Lemma4</h3><p>两组基等价，当且仅当一组基可以通过对列向量进行一下操作从另一组基获得：</p>
+<ol>
+<li>$b_i\leftarrow b_i+kb_j,k\in Z$</li>
+<li>$b_i \leftrightarrow b_j$</li>
+<li>$b_i\leftarrow -b_i$</li>
+</ol>
+<h3 id="Determinant行列式"><a href="#Determinant行列式" class="headerlink" title="Determinant行列式"></a>Determinant行列式</h3><p>$\Lambda&#x3D;L(B)$为秩n的格，定义行列式$det(\Lambda)&#x3D;\sqrt{det(B^TB)}$</p>
+<p>在格中行列式与基的选取无关。行列式越小，格的密度越大。如果我们在格中取一个很大的球体K，那么K中的个点数接近于$vol(K)&#x2F;det(\Lambda)$。其意义可以近似理解为是求体积除以单位体积。</p>
+<h2 id="2-Gram-Schmidt-Orthogonalization-GSO"><a href="#2-Gram-Schmidt-Orthogonalization-GSO" class="headerlink" title="2. Gram-Schmidt Orthogonalization(GSO)"></a>2. Gram-Schmidt Orthogonalization(GSO)</h2><blockquote>
+<p>施密特正交化</p>
+</blockquote>
+<p>对于n个线性无关向量$b_1,b_2,…,b_n$序列（不是集合），我们将它们的GSO设为$\tilde{b}_1,\tilde{b}_2,…,\tilde{b}<em>n$序列。<br>$$<br>\tilde{b}<em>i&#x3D;b_i-\sum^{i-1}</em>{j-1}\mu</em>{i,j}\tilde{b}<em>j,where;\mu</em>{i,j}&#x3D;\frac{\langle b_i,\tilde{b}_j\rangle}{\langle \tilde{b}_j,\tilde{b}_j\rangle}<br>$$<br>这部分是高等代数的知识，有一些简单的特性：</p>
+<ul>
+<li>任意$i\neq j$，有$\langle \tilde{b}_i,\tilde{b}_j\rangle&#x3D;0$</li>
+<li>两个序列张成的空间等价</li>
+<li>GSO序列不需要是格的基，一般甚至不包括在格中</li>
+<li>顺序很重要，因此是序列不是集合。</li>
+</ul>
+<h2 id="3-Successive-minima逐次最小长度"><a href="#3-Successive-minima逐次最小长度" class="headerlink" title="3. Successive minima逐次最小长度"></a>3. Successive minima逐次最小长度</h2><h3 id="范数与长度"><a href="#范数与长度" class="headerlink" title="范数与长度"></a>范数与长度</h3><p>长度指的是欧几里得范数，或者$l_2$范数，定义为$||x||_2&#x3D;\sqrt{\sum x_i^2}$。关于范数，可能会用到$l_1$范数$||x||_1&#x3D;{\sum |x_i|}$或者$l_\infty$范数$||x||_\infty&#x3D;max|x_i|$</p>
+<p>格有一个基本参数$\lambda_1$是格中最短非零向量的长度。</p>
+<h3 id="第i个逐次最小长度"><a href="#第i个逐次最小长度" class="headerlink" title="第i个逐次最小长度"></a>第i个逐次最小长度</h3><p>设$\Lambda$为秩n的格，对于$i&#x3D;1,2,…,n$，可以定义第i个逐次最小长度为<br>$$<br>\lambda_i(\Lambda)&#x3D;inf{r|dim(span(\Lambda\cap\bar{B}(0,r)))\geq i}<br>$$<br>其中$\bar{B}(0,r)&#x3D;{x\in rm|;||x||\leq r}$是半径r原点O左右的close ball。</p>
+<h3 id="theorem-5"><a href="#theorem-5" class="headerlink" title="theorem 5"></a>theorem 5</h3><p>格的最短非零向量长度必不小于GSO之后的最短向量。<br>$$<br>|\langle Bx,\tilde{b}<em>j\rangle|&#x3D;|\langle\sum</em>{i&#x3D;1}^jx_ib_i,\tilde{b}_j\rangle|&#x3D;|x_j|\langle\tilde{b}_j,\tilde{b}_j\rangle&#x3D;|x_j||\tilde{b}_j|^2<br>$$<br>其中$\text{for all }i&lt;j,\langle b_i,\tilde{b}_j\rangle&#x3D;0$且$\langle b_j,\tilde{b}_j\rangle&#x3D;\langle\tilde{b}_j,\tilde{b}_j\rangle $</p>
+<p>而且由绝对值不等式可知：$|\langle Bx,\tilde{b}_j\rangle|\leq||Bx||\cdot||\tilde{b}_j||$</p>
+<p>这样就导出了结论<br>$$<br>|Bx|\geq|x_j||\tilde{b}_j|\geq|\tilde{b}_j|\geq\min|\tilde{b}_i|<br>$$</p>
+<h3 id="corollary-6"><a href="#corollary-6" class="headerlink" title="corollary 6"></a>corollary 6</h3><p>对于任一格，存在$\epsilon &gt; 0$使得任意两个格点距离大于它$||x-y||&gt;\epsilon$</p>
+<p>证明：取theorem 5中提到的GSO后最短向量。</p>
+<h3 id="claim-7"><a href="#claim-7" class="headerlink" title="claim 7"></a>claim 7</h3><p>格的逐次最小长度必定能被取得。</p>
+<h3 id="Upper-bounds-on-the-successive-minima"><a href="#Upper-bounds-on-the-successive-minima" class="headerlink" title="Upper bounds on the successive minima"></a>Upper bounds on the successive minima</h3><p>Minkowski 逐次最小长度的上界 (Minkowski’s Upper bounds on the successive minima)。</p>
+<p>只考虑满格。</p>
+<h3 id="Theorem-8-Blichfeld"><a href="#Theorem-8-Blichfeld" class="headerlink" title="Theorem 8 Blichfeld"></a>Theorem 8 Blichfeld</h3><p>对于任意实数系上的满秩格$\Lambda$和可测度的实数上集合S（$vol(S)&gt;det(\Lambda)$），S上存在两个不相等的点，向量差属于格$\Lambda$</p>
+<p><img src="D:\vblog\source_posts\三论格LATTICE_3.assets\image-20240125165009129.png" alt="image-20240125165009129"></p>
+<blockquote>
+<p>看不懂思密达</p>
+</blockquote>
+<h3 id="Theorem-9-Minkowski’s-convex-body-theorem"><a href="#Theorem-9-Minkowski’s-convex-body-theorem" class="headerlink" title="Theorem 9  Minkowski’s convex body theorem"></a>Theorem 9  Minkowski’s convex body theorem</h3><p>满秩格$\Lambda$的秩为n，对于任何中心对称凸集S，如果$vol(S)&gt;2^ndet(\Lambda)$则S包含一个非零格点。</p>
+<h3 id="Claim-10"><a href="#Claim-10" class="headerlink" title="Claim 10"></a>Claim 10</h3><p>$$<br>vol(B(0,r))\geq (\frac{2r}{\sqrt{n}})^n<br>$$</p>
+<p>证明：这个n维球里面包含了长度为$\frac{2r}{\sqrt{n}}$的超立方体</p>
+<h3 id="Corollary-11-Minkowski’s-First-Theorem"><a href="#Corollary-11-Minkowski’s-First-Theorem" class="headerlink" title="Corollary 11 Minkowski’s First Theorem"></a>Corollary 11 Minkowski’s First Theorem</h3><p>$$<br>\lambda_1(\Lambda)\leq\sqrt{n}(det\Lambda)^{\frac{1}{n}}<br>$$</p>
+<h3 id="Claim-12"><a href="#Claim-12" class="headerlink" title="Claim 12"></a>Claim 12</h3><p>$$<br>\left(\frac{2\lambda_1(\Lambda)}{\sqrt{n}}\right)^n\leq\mathrm{vol}(\mathrm{B}(0,\lambda_1(\Lambda)))\leq2^n\det\Lambda<br>$$</p>
+<h2 id="4-Computational-Problems"><a href="#4-Computational-Problems" class="headerlink" title="4. Computational Problems"></a>4. Computational Problems</h2><p>闵可夫斯基第一定理说明了秩n的格$\Lambda $至少包含一个非零向量，其长度小于等于右式。但是这不具有建设性，因为没有一个找到这个向量的算法。事实上，没有已知的有效算法可以保证找到这样的短向量。</p>
+<p>这就是格的计算难题SVP：最短向量问题。准确来说是给出一个格，需要找到最短的非零格点。</p>
+<p>更准确的说，SVP有三个变体，决定了我们是否需要找到这个向量，或者只需要长度，或者确定它小于某个数字。</p>
+<ul>
+<li>Search SVP：给定格基$B \in Z^{m\times n}$，求$v\in L(B),st.||v||&#x3D;\lambda_1(L(b))$</li>
+<li>Optimization SVP：给定格基$B \in Z^{m\times n}$，找到$\lambda_1(L(b))$</li>
+<li>Decisional SVP：给定格基$B \in Z^{m\times n}$和有理数r，判断$\lambda_1(L(b))\leq r$是否成立</li>
+</ul>
+<p>在这里我们限制格基由整数向量组成，目的是使输入是有限多位的。事实上，我们还可以允许格基是有理向量，这和整数向量是等价的，因为可以通过缩放使所有有理数坐标都是整数。</p>
+<p>三个问题变体的难度是等价的。</p>
+<p>另一个基本格难题是最近向量问题CVP，目标是找到最接近给定空间点的格点。对于任意的近似因子$\gamma \geq 1$，定义有三个等价的变体：</p>
 
                 
             </div>
@@ -509,7 +558,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/</a>
+                    <a href="https://villons946.github.io/2024/03/09/san-lun-ge-lattice-3/">https://villons946.github.io/2024/03/09/san-lun-ge-lattice-3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -546,15 +595,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/pwntools/">
-                                    <span class="chip bg-color">pwntools</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -726,74 +767,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/24/gu-dian-mi-ma-yu-bian-ma/">
+                <a href="/2024/05/12/latex-ge-ren-shou-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="古典密码与编码">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Latex个人手册">
                         
-                        <span class="card-title">古典密码与编码</span>
+                        <span class="card-title">Latex个人手册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想记录尽可能多的古典密码或者奇怪的编码以及各自的特点。
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-12
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/usage/" class="post-category">
-                                    usage
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/crypto/">
-                        <span class="chip bg-color">crypto</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/02/21/intro/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Intro">
-                        
-                        <span class="card-title">Intro</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-21
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -813,10 +805,47 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/tex/">
+                        <span class="chip bg-color">tex</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/09/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Vil10n
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
