@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pwntools个人手册, cryptography">
+    <meta name="keywords" content="LInux个人手册, cryptography">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pwntools个人手册 | Vil10n</title>
+    <title>LInux个人手册 | Vil10n</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pwntools个人手册</h1>
+                    <h1 class="description center-align post-title">LInux个人手册</h1>
                 </div>
             </div>
         </div>
@@ -419,12 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/pwntools/">
-                                <span class="chip bg-color">pwntools</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -435,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/usage/" class="post-category">
-                                usage
+                            <a href="/categories/note/" class="post-category">
+                                note
                             </a>
                         
                     </div>
@@ -455,14 +451,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2024-06-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12
+                    599
                 </div>
                 
 
@@ -482,7 +478,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pwntools个人手册"><a href="#pwntools个人手册" class="headerlink" title="pwntools个人手册"></a>pwntools个人手册</h1><p>目前还啥都不会。</p>
+                <h1 id="LInux个人手册"><a href="#LInux个人手册" class="headerlink" title="LInux个人手册"></a>LInux个人手册</h1><p>[TOC]</p>
+<h2 id="Ubuntu22-04拖拽文件复制粘贴"><a href="#Ubuntu22-04拖拽文件复制粘贴" class="headerlink" title="Ubuntu22.04拖拽文件复制粘贴"></a>Ubuntu22.04拖拽文件复制粘贴</h2><p>解决问题方式参照<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45060188/article/details/132154379?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-132154379-blog-125756573.235%5Ev38%5Epc_relevant_anti_t3_base&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-132154379-blog-125756573.235%5Ev38%5Epc_relevant_anti_t3_base&utm_relevant_index=1">链接</a></p>
+<pre class="line-numbers language-none"><code class="language-none">sudo gedit &#x2F;etc&#x2F;gdm3&#x2F;custom.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删掉WaylandEnable&#x3D;false这一行最开始的#号<br>重启虚拟机系统即可</p>
+<h2 id="内存过满"><a href="#内存过满" class="headerlink" title="内存过满"></a>内存过满</h2><p>主要参照这个<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41918369/article/details/107416057">链接</a></p>
+<h3 id="启动异常"><a href="#启动异常" class="headerlink" title="启动异常"></a>启动异常</h3><p>在卡死的界面按 Ctrl+Alt+F2 进入tty2，输入用户名和密码登录。如果不记得可以拿虚拟机名试试。这样可以命令行启动。</p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42427109/article/details/107882574">参考链接</a></p>
+<pre class="line-numbers language-none"><code class="language-none">df
+sudo apt-get autoremove<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>df命令查看剩余存储空间</p>
+<p>后者是常用的自动清理指令。腾出空间重启应该就能正常启动了。</p>
+<h3 id="扩容1"><a href="#扩容1" class="headerlink" title="扩容1"></a>扩容1</h3><p>关机后再虚拟机设置中选磁盘-扩展-最大磁盘大小-扩展-保存</p>
+<p>使用gparted</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt install gparted
+sudo gparted <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>右键选中分区，选择 更改大小&#x2F;移动。</p>
+<h3 id="只读报错"><a href="#只读报错" class="headerlink" title="只读报错*"></a>只读报错*</h3><p>应该不是所有人都会遇到，但是不止我遇到了。<a target="_blank" rel="noopener" href="https://blog.csdn.net/ningmengzhihe/article/details/127295333">解决方案</a></p>
+<p>gparted中右键需要被resize磁盘，点击“信息”，在状态栏查看挂载位置信息。</p>
+<blockquote>
+<p>挂载于 &#x2F;, &#x2F;var&#x2F;snap&#x2F;firefox&#x2F;common&#x2F;host-hunspell</p>
+</blockquote>
+<p>也就是说有两个挂载位置</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;
+&#x2F;var&#x2F;snap&#x2F;firefox&#x2F;common&#x2F;host-hunspell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>打开终端，进入root权限，重新挂载文件夹目录的读写权限，我这里系统挂载了两个目录，那么这两个目录都要重新挂载读写权限</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo -i
+mount -o remount -rw &#x2F;
+mount -o remount -rw &#x2F;var&#x2F;snap&#x2F;firefox&#x2F;common&#x2F;host-hunspell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>GParted中刷新设备，然后就可以resize了。</p>
+<h3 id="扩容2"><a href="#扩容2" class="headerlink" title="扩容2"></a>扩容2</h3><p>如果没有遇到只读报错则从扩容1跳到这里。</p>
+<p>扩容后点击打勾的图标执行即可。</p>
+<h2 id="Vi-x2F-Vim使用"><a href="#Vi-x2F-Vim使用" class="headerlink" title="Vi&#x2F;Vim使用"></a>Vi&#x2F;Vim使用</h2><p>默认情况下，Vim 打开时处于普通模式。其他模式按 <code>Esc</code> 键返回普通模式。按i进入输入模式。</p>
+<p>按 <code>dd</code> 来删除当前行。<code>d</code> 是删除命令，<code>d</code> 后跟一个 <code>d</code> 表示删除一行。</p>
+<p><strong>退出并保存</strong>：</p>
+<ul>
+<li>首先确保你处于普通模式（如果你在插入或可视模式下，按 <code>Esc</code> 键返回普通模式）。</li>
+<li>然后，输入 <code>:wq</code> 命令并按 <code>Enter</code> 键。这里 <code>:w</code> 表示写入（保存），<code>:q</code> 表示退出。所以 <code>:wq</code> 表示保存并退出。</li>
+</ul>
+<p>不保存的情况下退出 Vim，可以使用 <code>:q!</code> 命令（强制退出，不保存更改）。</p>
 
                 
             </div>
@@ -509,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/pwntools-ge-ren-shou-ce/</a>
+                    <a href="https://villons946.github.io/2023/02/24/linux-ge-ren-shou-ce/">https://villons946.github.io/2023/02/24/linux-ge-ren-shou-ce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -547,12 +586,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/pwntools/">
-                                    <span class="chip bg-color">pwntools</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -1001,7 +1036,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17k</span>&nbsp;字
+                class="white-color">20.8k</span>&nbsp;字
             
             
             
